@@ -1,0 +1,76 @@
+/* pages/add_medicine_material/add_medicine_material.wxss */
+.add_medicine_name_box,.medicine_quantity_box{
+  font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #eee;
+  display:flex;
+  justify-content:space-between;
+}
+.add_medicine_name,.medicine_quantity{
+
+}
+.add_medicine_value{
+  display: inline-block;
+  font-size: 24rpx;
+  text-align:right;
+  margin-top:25rpx;
+}
+.medicine_quantity_value{
+  text-align: right;
+  margin-top:29rpx;
+  margin-right:8rpx;
+}
+.medicine_quantity_right_box{
+  display:flex;
+  width: 70%;
+  justify-content: flex-end
+}
+.medicine_unit_box{
+  position: relative;
+  width:27%;
+  display:flex;
+  justify-content:flex-end;
+}
+.medicine_unit_value{
+
+}
+.medicine_unit_icon{
+  width: 14rpx;
+  height: 9rpx;
+}
+.select_box{
+  border:1rpx solid #ddd;
+  position:absolute;
+  top:83rpx;
+  background:#fff;
+  z-index:10;
+
+}
+.select_one{
+  border-bottom:1rpx solid #ddd;
+  padding:0 10rpx;
+  height:60rpx;
+  line-height:60rpx;
+
+}
+.add_medicine_complete{
+display: block;
+    height: 70rpx;
+    width: 80%;
+    text-align: center;
+    font-size: 28rpx;
+    background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+    margin: 0 auto;
+    border-radius: 35rpx;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    position:fixed;
+    left:10%;
+    bottom:50rpx;
+}

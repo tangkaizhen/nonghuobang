@@ -1,0 +1,57 @@
+<!--pages/home/home.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <text>农活帮帮手端</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='banner_wechat_box'>
+  <image src='/images/banner_wechat.png' mode='widthFix' class='banner_wechat'></image>
+</view>
+
+
+<view class='helper_list_box'>
+	<view class='navigator_helper_box'  bindtap='toJMP'>
+			<view class='helper_box'>
+				<image src='/images/icon_jiedan_wechat.png' class='helper_box_img'></image>
+				<text class='helper_box_txt'>接单</text>
+			</view>
+			<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+	</view>
+
+  <view class='navigator_helper_box' bindtap='toMedicineMP'>
+    <view class='helper_box'>
+      <image src='/images/icon_medic_wechat.png' class='helper_box_img'></image>
+      <text class='helper_box_txt'>配药</text>
+    </view>
+		<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+  </view>
+	
+ <view class='navigator_helper_box' bindtap='toServiceMP'>
+  <view class='helper_box'>
+    <image src='/images/icon_fuwu_wechat.png' class='helper_box_img'></image>
+    <text class='helper_box_txt'>服务</text>
+  </view>
+	<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+   </view>
+  <!-- <view class='navigator_helper_box'  bindtap='toPinDanMP'>
+		<view class='helper_box'>
+			<image src='/images/icon_pindan_wechat.png' class='helper_box_img'></image>
+			<text class='helper_box_txt'>拼单</text>
+		</view>
+		<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+   </view> -->
+ 
+ <!-- <view class='navigator_helper_box'  bindtap='toArgMP'>
+		<view class='helper_box'>
+			<image src='/images/icon_store_wechat.png' class='helper_box_img'></image>
+			<text class='helper_box_txt'>农机</text>
+			<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+		</view>
+	</view> -->
+	 <view class='navigator_helper_box'  bindtap='to_people_center'>
+		<view class='helper_box'>
+			<image src='/images/icon_wode_wechat.png' class='helper_box_img'></image>
+			<text class='helper_box_txt'>个人中心</text>
+			<button wx:if='{{ifShowAuth}}' class='getUserInfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+		</view>
+	</view>
+</view>

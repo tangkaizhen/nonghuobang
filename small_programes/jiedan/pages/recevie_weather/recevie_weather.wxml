@@ -1,0 +1,44 @@
+<!--pages/recevie_weather/recevie_weather.wxml-->
+<view class='weather_box' style='background:url({{weather_box_bg}})' hidden='{{weather_box}}'>
+<image class='back_page' bindtap='back_page' src='/images/icon_nav_back_white.png'></image>
+  <view class='weather_tem_box'>
+    <text class='weather_tem'>{{weather.temp}}</text>
+    <text class='weather_tem_unit'>°C</text>
+  </view>
+  <view class='tem_high_low'>{{weather.tempLow}}~{{weather.tempHigh}}°C</view>
+  <view class='weather_cloud'>
+    <image class='weather_cloud_img' src='{{weather_img}}'></image>
+    <text class='weather_cloud_txt'>{{weather.weather}}</text>
+  </view>
+  <view class='weather_wind'>{{weather.windDirect}}{{weather.windPower}}</view>
+  <view class='weather_date_box'>
+    <view class='weather_date_inner_box'>
+    
+      <text class='weather_date_weekend'>{{weather.week}}</text>
+      <text class='weather_date_today'>今天</text>
+    </view>
+    <view class='weather_date_tem'>
+      <text class='weather_date_tem_high'>{{weather.tempHigh}}°C</text>
+      <text class='weather_date_tem_low'>{{weather.tempLow}}°C</text>
+    </view>
+  </view>
+
+  <view class='weather_time'>
+      <view class='weather_time_item' wx:for='{{weather.hourlyList}}' wx:key="index">
+        <view class='weather_time_value'>{{item.time}}</view>
+        <image class='weather_cloud_value' src='/images/weather_icon/w_{{item.img}}_white.png'></image>
+        <view class='weather_tem_value'>{{item.temp}}°C</view>
+      </view>
+  </view>
+  
+  <view class='weather_weekend'>
+    <view class='weather_weekend_item' wx:for='{{weather.dailyList}}' wx:key="index">
+      <view class='weather_weekend_value'>{{item.week}}</view>
+      <image class='weather_weekend_cloud' src='/images/weather_icon/w_{{item.img}}_white.png'></image>
+      <view class='weather_weekend_tem'>
+        <view class='weather_weekend_tem_high'>{{item.tempHigh}}</view>
+        <view class='weather_weekend_tem_low'>{{item.tempLow}}</view>
+      </view>
+    </view>
+  </view>
+</view>

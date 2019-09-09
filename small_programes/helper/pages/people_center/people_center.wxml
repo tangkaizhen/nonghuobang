@@ -1,0 +1,33 @@
+<view class='people_center_top'>
+  <image class='icon_back' bindtap='icon_back' src='/images/icon_nav_back_white.png'></image>
+  <view class='people_center_name_box' bindtap='to_person_info'>
+    <view class='people_center_img_box'>
+      <image wx:if='{{helper.headImg==undefined||helper.headImg=="undefined"}}' class='people_center_img' src='/images/sculpture_default_regular_r_99.png'></image>
+      <image wx:else class='people_center_img' src='{{res_ctx}}/{{helper.headImg}}'></image>
+      <text class='people_center_name'>{{helper.name}}</text>
+    </view>
+    <image class='people_center_right' src='/images/icon_forward_white.png'></image>
+  </view>
+</view>
+
+<view class='people_center_list' bindtap='to_wallet'>
+  <view class='people_center_list_left'>
+    <image class='people_center_list_img' src='/images/icon_qianbao.png'></image>
+    <text class='people_center_list_txt'>钱包</text>
+  </view>
+  <image class='people_center_list_right' src='/images/icon_forward_grey.png'></image>
+</view>
+<view class='people_center_list' bindtap='to_evaluate'>
+  <view class='people_center_list_left'>
+    <image class='people_center_list_img' src='/images/icon_pingjia.png'></image>
+    <text class='people_center_list_txt'>我的评价</text>
+  </view>
+  <image class='people_center_list_right' src='/images/icon_forward_grey.png'></image>
+</view>
+<!-- <view class='people_center_list'>
+  <view class='people_center_list_left'>
+    <image class='people_center_list_img' src='/images/icon_bangzhu.png'></image>
+    <text class='people_center_list_txt'>帮助与反馈</text>
+  </view>
+  <image class='people_center_list_right' src='/images/icon_forward_grey.png'></image>
+</view> -->

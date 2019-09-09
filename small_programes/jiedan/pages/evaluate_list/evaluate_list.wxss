@@ -1,0 +1,118 @@
+/* pages/evaluate_list/evaluate_list.wxss */
+.evaluate_type_box{
+  padding: 40rpx 15rpx 25rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1rpx solid #eee
+}
+.evaluate_type{
+  font-size: 24rpx;
+  color: #333;
+}
+.evaluate_type.index{
+  color: #ff6f26;
+}
+.evaluate_box{
+
+}
+.evaluate_top_box{
+  padding: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee
+}
+.evaluate_header{
+  font-size: 24rpx;
+  color: #333;
+}
+.evaluate_all{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 24rpx;
+  color: #aaa
+}
+.evaluate_all_right{
+  width: 12rpx;
+  height: 20rpx;
+  margin-left: 5rpx
+}
+.evaluate_content_box{
+  padding: 24rpx 34rpx;
+  border-bottom: 1rpx solid #eee
+}
+.evaluate_content_top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.evaluate_person_box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.evaluate_person_img{
+  width: 100rpx;
+  height: 100rpx;
+  border: 5rpx solid #eee;
+  border-radius:50rpx;
+  margin-right: 24rpx 
+}
+.evaluate_person_name{
+  font-size: 26rpx;
+  font-weight: bold
+}
+.evaluate_content_date{
+  color: #aaa;
+  font-size: 20rpx;
+  margin: 15rpx 0 
+}
+.evaluate_content{
+  font-size: 24rpx;
+  color: #333;
+  text-indent: 30rpx;
+  line-height: 50rpx
+}
+.evaluate_content_img_box{
+  padding: 15rpx 0
+}
+.evaluate_content_img{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx
+}
+.to_search_all{
+  color: #888;
+  font-size: 20rpx;
+  padding: 34rpx 0;
+  text-align: center 
+}
+.to_search_all text{
+  font-size: 24rpx
+}
+.farmer_grade_box{
+  display: flex;
+  align-items: center
+}
+.farmer_grade_innerbox{
+    background: #ff6f26;
+    color: #fff;
+    padding:0rpx 10rpx;
+    border-radius:9rpx;
+    margin-right: 14rpx;
+}
+.farmer_grade_star{
+width: 23rpx;
+    height: 23rpx;
+    margin-right:5rpx;
+}
+.farmer_grade_value{
+color: #fff;
+    font-size: 20rpx;
+}
+.farmer_grade_word{
+  color: #ff6f26;
+  font-size: 20rpx;
+}

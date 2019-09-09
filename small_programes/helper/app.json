@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/start/start",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/set_wallet_password/set_wallet_password",
+    "pages/wallet/wallet",
+    "pages/my_banks/my_banks",
+    "pages/bill_details/bill_details",
+    "pages/bill/bill",
+    "pages/edite_name/edite_name",
+    "pages/person_info/person_info",
+    "pages/person_info_location/person_info_location",
+    "pages/person_info_location_write/person_info_location_write",
+    "pages/com_identity_authentication/com_identity_authentication",
+    "pages/identity_authentication/identity_authentication",
+    "pages/add_bank/add_bank",
+    "pages/people_center/people_center",
+    "pages/change_phone_second/change_phone_second",
+    "pages/change_phone_first/change_phone_first",
+    "pages/person_center_evaluate_list/person_center_evaluate_list",
+    "pages/evaluate_list/evaluate_list",
+    "pages/userNotice/userNotice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "配药工具",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxa64c9cda17213d26",
+    "wxaaca12df01e9dce0",
+    "wx26509205fe07860e",
+    "wx70278e0aec4988b3",
+    "wxb551e64956a3990a"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

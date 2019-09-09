@@ -1,0 +1,35 @@
+<!--pages/add_medicine_material/add_medicine_material.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='{{back_img}}'></image>
+  <text>配药工具</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='add_medicine_name_box'>
+   <text class='add_medicine_name'>药物名称</text>
+   <input placeholder='请输入药物名称' bindinput='bind_medic_name' value='{{medicine_name}}' class='add_medicine_value' placeholder-style=''></input>
+</view>
+
+<view class='medicine_quantity_box'>
+   <text class='medicine_quantity'>用量</text>
+
+   <view class='medicine_quantity_right_box'>
+      <input type='digit' placeholder='请输入用量' bindinput='bind_medic_quantity' value='{{medicine_quantity}}' class='medicine_quantity_value' placeholder-style=''></input>
+      <view class='medicine_unit_box'>
+          <view class='medicine_unit_down_box' bindtap='toggle_select'>
+              <text class='medicine_unit_value'>{{medicine_unit_value}}</text>
+              <image class='medicine_unit_icon' src='../../images/icon_down_peifang.png'></image>
+          </view>
+
+          <view class="select_box" wx:if="{{select}}">
+            <view class="select_one" bindtap="mySelect" data-unit="kg/㎡">kg/㎡</view>
+            <view class="select_one" bindtap="mySelect" data-unit="mg/L">mg/L</view>
+            <view class="select_one" bindtap="mySelect" data-unit="mg/亩">mg/亩</view>
+          </view>
+      </view>
+   </view>
+</view>
+<view class='reminder_box' hidden='{{isHiddenReminder}}'>
+  {{reminder_info}}
+</view>
+<button class='add_medicine_complete' bindtap='add_medicine_complete'>完成</button>

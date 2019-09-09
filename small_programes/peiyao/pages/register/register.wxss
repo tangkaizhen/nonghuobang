@@ -1,0 +1,87 @@
+/* pages/register/register.wxss */
+.register_outter_box{
+	width: 100%;
+	background: #f2f2f2;
+	padding: 16rpx 25rpx
+}
+.register_box{
+	width: 100%;
+	background: #fff;
+	border-radius: 20rpx;
+	padding-top:24rpx; 
+}
+.register_header{
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+.register_line{
+	height: 1rpx;
+	width: 80rpx;
+	background: #eee
+}
+.register_text{
+	font-size: 32rpx;
+	color: #666;
+	margin: 0 10rpx
+}
+
+.register_type_outter_box{
+	margin-top: 50rpx;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 94rpx
+}
+.register_type_box{
+	text-align: center;
+}
+.register_type_img{
+	width: 160rpx;
+	height: 160rpx;
+	margin-bottom: 18rpx;
+}
+.register_type_txt{
+	font-size: 28rpx;
+	color: #666
+}
+.register_type_txt.index{
+	color: #6cd986
+}
+.certificate_img_box{
+	margin-top: 48rpx;
+	text-align: center;
+	margin-bottom: 90rpx
+}
+.certificate_img{
+	width: 614rpx;
+	margin-bottom: 48rpx;
+	height: 396rpx;
+}
+.certificate_img{
+
+}
+.register_btn{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 100rpx;
+	font-size: 40rpx;
+	color: #fff;
+	text-align: center;
+	line-height: 100rpx;
+	background: #6cd986
+}
+.id_number{
+	height: 80rpx;
+	width: 90%;
+	left: 5%;
+	position: relative;
+	border: 1rpx solid #eee;
+	border-radius: 10rpx;
+	text-align: center;
+	font-size: 32rpx;
+	color: #333;
+	margin: 40rpx 0 80rpx
+}

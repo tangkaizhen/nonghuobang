@@ -1,0 +1,8 @@
+$w:20px;
+$side:top;
+.div1{
+    width: $w;
+    font-size: $w;
+    height: $w;
+    border-#{$side}:1px solid #ccc 
+}

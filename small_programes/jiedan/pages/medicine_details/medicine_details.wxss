@@ -1,0 +1,136 @@
+/* pages/medicine_details/medicine_details.wxss *//* pages/add_medicine/add_medicine.wxss */
+.add_medicine_name_box{
+  font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #eee;
+  display:flex;
+  justify-content:space-between;
+
+}
+.add_medicine_name{
+
+}
+.add_medicine_value{
+  display: inline-block;
+  font-size: 24rpx;
+  color:#333;
+  text-align:right;
+  margin-top:25rpx;
+
+}
+.add_medicine_header{
+font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #eee;
+}
+.no_medic{
+  width: 128rpx;
+  height: 128rpx;
+  margin: 46rpx auto 58rpx;
+  display: block
+}
+.medicine_add{
+  color:#6cd986;
+  font-size:28rpx;
+  border:#6cd986 dashed 2rpx;
+  width:584rpx;
+  margin-top:46rpx;
+  margin-bottom:40rpx;
+}
+.medicine_btns_box{
+  position:fixed;
+  width: 80%;
+  left:10%;
+  bottom:50rpx;
+  display: flex;
+}
+.change_medicine{
+  height: 70rpx;
+  text-align: center;
+  font-size: 28rpx;
+  background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+  border-radius: 35rpx;
+  color: #fff;
+  border: none;
+  -webkit-appearance: none;
+  width: 35%;
+}
+.add_medicine_next{
+    height: 70rpx;
+    text-align: center;
+    font-size: 28rpx;
+    background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+    border-radius: 35rpx;
+    color: #fff;
+    border: none;
+    -webkit-appearance: none;
+    width: 60%;
+    margin-right: 5%
+}
+
+.medicine_arr_box{
+margin:24rpx 100rpx;
+display:flex;
+justify-content:space-between;
+font-size:24rpx;
+
+}
+.medicine_arr_name{
+color:#333;
+
+}
+.medicine_arr_box_right{
+  color:#333;
+  display: flex;
+  align-items: center
+}
+.medicine_arr_dosage{
+
+}
+.medicine_arr_unit{
+
+}
+
+.add_airplane_height_box,.add_airplane_speed_box,.add_airplane_range_box,.add_airplane_quantity_box{
+  font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #eee;
+  display:flex;
+  justify-content:space-between;
+}
+.add_airplane_height_name,.add_airplane_speed_name,.add_airplane_range_name,.add_airplane_quantity_name{
+
+}
+.add_airplane_height,.add_airplane_speed,.add_airplane_range,.add_airplane_quantity{
+  text-align: right;
+  padding-right:12rpx;
+}
+
+.add_airplane_height_box_right,.add_airplane_speed_box_right,.add_airplane_range_box_right,.add_airplane_quantity_box_right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+.medicine_arr_delete{
+  display:inline-block;
+color:#ff4e00;
+font-size:18rpx;
+border:1rpx solid #ff4e00;
+margin-left:9rpx;
+background:#fff;
+width:67rpx;
+border-radius:10rpx;
+position:relative;
+}

@@ -1,0 +1,33 @@
+/* pages/identity_authentication/identity_authentication.wxss */
+page{
+  background: #fafafa
+}
+.identity_box{
+  text-align: center;
+  padding-top: 72rpx;
+}
+.identity_txt{
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 38rpx;
+}
+.identity_positive{
+  width: 500rpx;
+  height: 270rpx;
+}
+.identity_reverse{
+  width: 500rpx;
+  height: 270rpx;
+  margin: 66rpx 0 50rpx;
+}
+.identity_btn{
+  background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+  color: #fff;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  margin-top: 60rpx;
+  width: 74%;
+  margin-left: 13%;
+}

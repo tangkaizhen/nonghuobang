@@ -1,0 +1,72 @@
+<!--pages/my_pindan/my_pindan.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>我的拼单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<!--搜索框 -->
+
+ <cover-view class='search_box'>
+  <cover-view class='search_inner_box' bindtap='to_search'>
+    <cover-view class='search_txt'>搜索</cover-view>
+    <cover-image class='search_img' src='/images/icon_index_search.png'></cover-image>
+  </cover-view>
+  <cover-view class='search_right_box'>
+    <cover-view class='search_filtrate_box' bindtap='toggle_filtrate_box'>
+      <cover-view class='search_filtrate_txt'>{{search_txt}}</cover-view>
+      <cover-image class='search_img_down' src='/images/icon_pulldown.png'></cover-image>
+    </cover-view>
+  </cover-view>
+ </cover-view>
+
+
+<!-- 筛选条件 -->
+<cover-view class='filtrate_box' hidden='{{isHideFil}}'>
+  <cover-view class='filtrate_left_box'>
+    <cover-view class='filtrate_inner_box' data-index='1' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type1}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>全部类型</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class='filtrate_right_box'>
+    <cover-view class='filtrate_inner_box' data-index='2' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type2}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>耕种</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='3' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type3}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>打药</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='4' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type4}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>收割</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='5' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type5}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>人工</cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>
+
+<!-- 发起拼单 -->
+<view class='start_pindan' bindtap='to_start'>
+  <image class='start_pindan_img' src='/images/icon_collage_liebiao_xin.png'></image>
+  <view class='start_pindan_txt'>发起拼单</view>
+</view>
+
+
+<view class='order_outter_box'  wx-if='{{combineOrders.length>0}}'>
+  <view class='order_inner_box'>
+    <view class='order_content_box' wx:for='{{combineOrders}}' wx:key="*this">
+      <view class='order_content_header'>{{item.jobType}}/{{item.cropsType}}/{{item.serviceArea}}
+        <text class='order_content_unit'>亩</text>
+      </view>
+      <view class='order_content_position'>{{item.province}}{{item.city}}{{item.district}}{{item.address}}</view>
+      <view class='order_content_date'>作业时间：{{item.serviceDate}}</view>
+      <view class='order_content_btn_box'>
+        <view class='order_content_btn_editor' data-index='{{index}}' data-id='{{item.id}}' bindtap='to_ediotr'>编辑</view>
+        <view class='order_content_btn_del' data-index='{{index}}' data-id='{{item.id}}' bindtap='to_delete'>删除</view>
+      </view>
+    </view>
+  </view>
+ </view>

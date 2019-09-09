@@ -1,0 +1,131 @@
+<!--pages/recevie_order/recevie_order.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <text>接单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='recevie_outter_box' wx:if='{{helper_id!=undefined&&helper_id!=""&&!ifShowAuth&&!hidden_recevie_outter_box}}'>
+<view class='recevie_top'  wx:if='{{helper_id!=undefined&&helper_id!=""&&!ifShowAuth}}'>
+  <text class='recevie_location' bindtap='recevie_location'>{{position_city}}</text>
+  <view class='recevie_weather' bindtap='recevie_weather'>{{weather.temp}} <image class='recevie_weather_icon'src='{{weather_img}}'></image>{{weather.weather}}</view>
+  <view class='recevie_type' bindtap="toggle_filtrate_box">
+    <text class='recevie_type_value'>{{operate_type}}</text>
+    <image class='recevie_type_icon' src='/images/icon_pulldown.png'></image>
+  </view>
+</view>
+
+<view class='recevie_box'>
+  <view class='recevie_content' wx:for='{{orders}}' wx:key='index'>
+    <view class='recevie_content_top' data-id='{{item.id}}' bindtap='to_order_details'>
+      <view class='recevie_content_authentication index' wx:if='{{item.farmer.flag==3}}'>认证</view>
+      <view class='recevie_content_authentication' wx:else>未认证</view>
+        <view class='recevie_content_top_inner'>
+          <view class='recevie_content_name_box'>
+            <image wx:if='{{item.farmer.headImg}}' src='{{res_ctx}}/{{item.farmer.headImg}}' class='farmer_img'></image>
+            <image wx:else src='/images/sculpture_default.png' class='farmer_img'></image>
+
+            <view class='farmer_name_box'>
+              <view class='farmer_name'>{{item.farmer.name}}</view>
+              
+              <view class='farmer_grade_box'>
+                <view class='farmer_grade_innerbox' wx:if='{{item.farmer.judge==5}}' style='background:#ff6f26'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>5.0</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=4.5}}' style='background:#ffbf00'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=3}}' style='background:#666'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=2}}' style='background:#333'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:else style='background:#000'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <text class='farmer_position'>{{item.location}}</text>
+              </view>
+            </view>  
+          </view>
+        </view>
+        <view class='recevie_content_distance'>{{item.distance}}km</view>
+    </view>
+
+    <view class='recevie_content_center' data-id='{{item.id}}' bindtap='to_order_details'>
+      <view class='recevie_content_header' wx:if='{{item.jobType=="人工"}}'>人工/{{item.cropsType}}/{{item.serviceType}}/{{item.helperNum}}天</view>
+      <view class='recevie_content_header' wx:else>{{item.jobType}}/{{item.cropsType}}/{{item.area}}亩</view>
+      <view class='recevie_content_price'>
+        <text class='recevie_content_price_unit'>￥</text>
+        <text class='recevie_content_price_value'>{{item.totalPrice}}</text>
+      </view>
+      <view class='recevie_content_date'>作业时间：{{item.expectDate}}</view>
+    </view>
+    <!-- 这时候表示还没申请 -->
+    <view wx:if='{{item.applyFlag==0}}' class='recevie_btn' data-id='{{item.id}}' bindtap='recevie_btn'>
+        申请接单
+    </view>
+    <!-- 这时候表示已经申请了 -->
+    <view class='recevie_btn index' wx:else>已申请</view>
+  </view>
+</view>
+
+	<view class='search_filtrate_box' wx:if='{{helper_id!=undefined&&helper_id!=""&&!ifShowAuth}}'>
+		<view class='search_box' bindtap='search_box'>
+			<text class='search_txt'>搜索</text>
+			<image class='search_logo' src='/images/icon_search.png'></image>
+		</view>
+		<view class='filtrate_inner_box' bindtap='filtrate_inner_box'>
+			<text class='filtrate_inner_txt'>筛选排序</text>
+			<image class='filtrate_inner_logo' src='/images/icon_index_sort.png'></image>
+		</view>
+	</view>
+
+	<!-- 筛选条件 -->
+	<cover-view class='filtrate_box' hidden='{{isHideFil}}'>
+		<cover-view class='filtrate_left_box'>
+			<cover-view class='filtrate_inner_box' data-index='1' bindtap='select_filtrate_type'>
+				<cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type1}}.png'></cover-image>
+				<cover-view class='filtrate_type_txt'>全部类型</cover-view>
+			</cover-view>
+		</cover-view>
+		<cover-view class='filtrate_right_box'>
+			<cover-view class='filtrate_inner_box' data-index='2' bindtap='select_filtrate_type'>
+				<cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type2}}.png'></cover-image>
+				<cover-view class='filtrate_type_txt'>耕种</cover-view>
+			</cover-view>
+			<cover-view class='filtrate_inner_box' data-index='3' bindtap='select_filtrate_type'>
+				<cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type3}}.png'></cover-image>
+				<cover-view class='filtrate_type_txt'>打药</cover-view>
+			</cover-view>
+			<cover-view class='filtrate_inner_box' data-index='4' bindtap='select_filtrate_type'>
+				<cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type4}}.png'></cover-image>
+				<cover-view class='filtrate_type_txt'>收割</cover-view>
+			</cover-view>
+			<cover-view class='filtrate_inner_box' data-index='5' bindtap='select_filtrate_type'>
+				<cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type5}}.png'></cover-image>
+				<cover-view class='filtrate_type_txt'>人工</cover-view>
+			</cover-view>
+		</cover-view>
+	</cover-view>
+
+</view>
+
+<view wx:if='{{ifShowAuth}}'>
+	<view wx:if="{{authorization}}" class='start_box'>
+		<image class='start_logo' src='/images/jiedan.png'></image>
+		<button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">请先授权			  </button>
+	</view>
+
+	<view wx:else class='refuse_authorization'>
+		<view class='refuse_txt1'>温馨提示!</view>
+		<view class='refuse_txt2'>为保证您正常使用，请先授权</view>
+		<button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始授权</button>
+	</view>
+</view>
+
+

@@ -1,0 +1,17 @@
+<!--pages/search/search.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/btn_x_white.png'></image>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='search_outter_box'>
+  <view class='search_inner_box'>
+    <view class='search_header'>搜索</view>
+    <view class='search_small_header'>搜索关键字</view>
+    <input placeholder='请输入您想搜索的内容' bindconfirm='search_btn' bindinput='bind_keyword' value='{{keyword}}' confirm-type='search' class='keyword' placeholder-style='font-size:24rpx;color:rgba(255,255,255,.5)'></input>
+    <view class='search_small_header'>历史搜索</view>
+    <block wx:if="{{history.length>0}}">
+      <view class='search_history' wx:for="{{history}}" wx:key="*this" data-keyword='{{item}}' bindtap='history_to_home'>{{item}}</view>
+    </block>
+  </view>
+</view>

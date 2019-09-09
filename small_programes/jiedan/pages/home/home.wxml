@@ -1,0 +1,201 @@
+<!--pages/home/home.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <text>订单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+ <view class='search_box'>
+  <view class='search_inner_box' bindtap='to_search'>
+    <view class='search_txt'>搜索</view>
+    <image class='search_img' src='/images/icon_search.png'></image>
+  </view>
+  <view class='search_right_box'>
+    <view class='search_filtrate_box' bindtap='toggle_filtrate_box'>
+      <view class='search_filtrate_txt'>{{search_filtrate_txt}}</view>
+      <image class='search_img_down' src='/images/icon_pulldown.png'></image>
+    </view>
+  </view>
+ </view>
+
+<!-- 筛选条件 -->
+<view class='filtrate_box' hidden='{{isHideFil}}'>
+    <view class='order_list_box'>
+      <view class='order_list {{order_type_select.order_type0?"order_select":""}}' data-index='0' bindtap='order_list' data-val='全部订单'>全部订单</view>
+      <view class='order_list {{order_type_select.order_type1?"order_select":""}}' bindtap='order_list' data-index='1' data-val='申请中'>申请中</view>
+      <view class='order_list {{order_type_select.order_type2?"order_select":""}}' bindtap='order_list' data-index='2' data-val='待确认'>待确认</view>
+      <view class='order_list {{order_type_select.order_type3?"order_select":""}}' bindtap='order_list' data-index='3' data-val='待作业'>待作业</view>
+      <view class='order_list {{order_type_select.order_type4?"order_select":""}}' bindtap='order_list' data-index='4' data-val='作业中'>作业中</view>
+      <view class='order_list {{order_type_select.order_type5?"order_select":""}}' bindtap='order_list' data-index='5' data-val='待结算'>待结算</view>
+      <view class='order_list {{order_type_select.order_type6?"order_select":""}}' bindtap='order_list' data-index='6' data-val='待评价'>待评价</view>
+      <view class='order_list {{order_type_select.order_type7?"order_select":""}}' bindtap='order_list' data-index='7' data-val='已完成'>已完成</view>
+      <view class='order_list {{order_type_select.order_type8?"order_select":""}}' bindtap='order_list' data-index='8' data-val='已取消'>已取消</view>
+    </view>
+    <view class='borderLine'></view>
+    <view class='order_cancel_assign_box'>
+        <view class='order_cancel_box'>
+            不显示已取消订单<image bindtap='order_cancel_box' class='order_cancel_select_img' src='/images/{{!order_cancel_select_img?"icon_switch2_off":"icon_switch2_on"}}.png'></image>
+        </view>
+        <view class='order_assign_box'> 
+            只显示已指派订单<image bindtap='order_assign_box' class='order_assign_select_img' src='/images/{{!order_assign_select_img?"icon_switch2_off":"icon_switch2_on"}}.png'></image>
+        </view>
+    </view>
+    <view class='borderLine'></view>
+    <view class='order_btn_box'>
+        <view class='order_btn_cancel' bindtap='order_btn_cancel'>取消</view>
+        <view class='order_btn_confirm' bindtap='order_btn_confirm'>确定</view>
+    </view>
+</view> 
+
+<!-- 下面是订单列表 -->
+<view class='order_box' hidden='{{hide_order_box}}'>
+
+  <view wx:for='{{orders}}' class='order_content {{item.flag==2?"index":""}}' wx:key="item.id" data-id='{{item.id}}' bindtap='to_order_detail'>
+  
+    <view class='order_top'>
+      <view class='order_number'>
+        <image class='order_logo' wx:if="{{item.jobType=='耕种'}}" src='/images/icon_selection_m_cultivation.png'></image>
+        <image class='order_logo' wx:elif="{{item.jobType=='打药'}}" src='/images/icon_selection_m_spray.png'></image>
+        <image class='order_logo' wx:elif="{{item.jobType=='收割'}}" src='/images/icon_selection_m_harvest.png'></image>
+        <image class='order_logo' wx:else="{{item.jobType=='人工'}}" src='/images/icon_selection_m_hire.png'></image>
+        
+        <text class='order_number_val'>{{item.orderNo}}</text>
+      </view>
+
+      <!-- 下面是各种订单状态 -->
+      <view class='order_status' wx:if="{{item.applyFlag==1}}">申请中</view>
+      <view class='order_status index' wx:elif="{{item.applyFlag==3}}">申请未通过</view>
+
+      <view class='order_status' wx:elif="{{item.state==1}}">待确认</view>
+      <block wx:elif="{{item.state==2}}">
+        <!-- 待作业 -->
+
+        <!-- 这是表示子帮手的待确认 -->
+        <view class='order_status' wx:if="{{helper_type==3&&item.assignFlag==1}}">待确认</view>
+        <view class='order_status index' wx:elif="{{item.cancelFlag==1}}">已取消</view>
+        <view class='order_status' wx:else>待作业</view>
+      </block> 
+      
+      <block wx:elif="{{item.state==8}}">
+        <!-- 作业中 -->
+
+        <!-- 这时候表示的是帮手点击取消订单之后出现的取消待确认状态 -->
+        <view class='order_status index' wx:if="{{item.cancelFlag==1}}">已取消</view>
+        <view class='order_status' wx:elif="{{item.updateFlag==1}}">修改价格待确认</view>
+        <view class='order_status' wx:else>作业中</view>
+      </block>
+      <view class='order_status' wx:elif="{{item.state==3}}">待结算</view>
+      <view class='order_status' wx:elif="{{item.state==4&&item.helperRate==false}}">待评价</view>
+      <view class='order_status index' wx:elif="{{item.helperRate==true}}">已完成</view>
+      <view class='order_status index' wx:elif="{{item.state==0}}">已取消（子帮手）</view>
+      <view class='order_status index' wx:elif="{{item.state==6||item.state==0||item.state==7}}">已取消</view>
+    </view>
+    <!-- 这是判断是不是已经指派的 -->
+    <view class='order_center {{(item.assignFlag>=1&&helper_type==2&&!item.helperRate)?"index":""}}'>
+      <view class='order_header' wx:if="{{item.jobType=='人工'}}">{{item.jobType}}/{{item.cropsType}}/{{item.jobDays}}<text class='order_header_unit'>天</text></view>
+      <view class='order_header' wx:else="{{item.jobType=='人工'}}">{{item.jobType}}/{{item.cropsType}}/{{item.area}}<text class='order_header_unit'>亩</text></view>
+      <view class='order_position'>{{item.province}}{{item.city}}{{item.district}}{{item.street}}{{item.address}}</view>
+      <view class='order_date' wx:if='{{item.state==6||item.state==0||item.state==7}}'></view>
+      <view class='order_date' wx:else>作业日期：{{item.expectDate}}</view>
+    </view>
+
+    <view wx:if='{{item.applyFlag==3}}'></view>
+      <!-- 不同的订单状态，按钮使不同的 -->
+
+      <!-- 待确认 -->
+    <view wx:elif='{{item.applyFlag==0&&item.state==1}}' class='order_two_btns_box'>
+      <view class='order_two_btns_first' data-id='{{item.id}}' catchtap='refuse_receive_order'>拒绝接单</view>
+      <view class='order_two_btns_second' data-id='{{item.id}}' catchtap='confrim_receive_order'>确认接单</view>
+    </view>  
+
+      <!-- 待作业 -->
+    <block wx:elif='{{item.state==2}}'>
+        <!-- 个人帮手 -->
+        <view wx:if='{{item.cancelFlag==0&&item.state==2&&helper_type==1}}' data-id='{{item.id}}' catchtap='start_work' class='order_one_btn'>开始作业</view>
+
+        <!-- 企业帮手 -->
+        <view wx:elif='{{item.assignFlag==0&&item.state==2&&helper_type==2}}' class='order_two_btns_box'>
+          <view class='order_two_btns_first' data-id='{{item.id}}' catchtap='assgin_order'>指派订单</view>
+          <view class='order_two_btns_second' data-id='{{item.id}}' catchtap='start_work'>开始作业</view>
+        </view>
+
+        <!-- 子帮手 -->
+        <view wx:elif='{{helper_type==3&&item.state==2&&item.assignFlag==2}}' class='order_one_btn'>开始作业</view>
+
+        <!-- 指派待确认 -->
+        <block wx:elif='{{helper_type==3&&item.assignFlag==1}}'>
+            <view class='order_two_btns_box'>
+              <view class='order_two_btns_first' data-id='{{item.id}}' bindtap=''>拒绝接单</view>
+              <view class='order_two_btns_second' data-id='{{item.id}}' bindtap=''>确认接单</view>
+            </view>
+        </block>
+    </block>
+    
+    <!-- 作业中 -->
+    <block wx:elif='{{item.state==8&&item.assignFlag==0}}'>   
+        <!-- 这时候在改价 -->
+        <view wx:if='{{item.updateFlag==1}}' class='order_one_btn index' data-phone='{{item.contactPhone}}' catchtap='contact_farmer'>联系农户</view>
+        <!-- 这时候没有在改价 -->
+        <view wx:elif='{{item.cancelFlag==0}}' data-id='{{item.id}}' catchtap='complete_work' class='order_one_btn'>完成作业</view>
+    </block> 
+
+    <!-- 待结算 -->
+    <block wx:elif='{{item.state==3&&item.payFlag==1}}'>
+        <view wx:if='{{helper_type==1||(helper_type==2&&item.assignFlag==0)||(helper_type==3&&item.assignFlag==2)}}' class='order_one_btn'>确认收款</view>
+    </block>
+
+    <!-- 待评价 -->
+    <block wx:elif='{{item.helperRate==false&&item.state==4}}'>
+      <view wx:if='{{helper_type==1||(helper_type==2&&item.assignFlag==0)||(helper_type==3&&item.assignFlag==2)}}' class='order_one_btn index' data-id='{{item.id}}' catchtap='immediate_evaluate'>立即评价</view>
+    </block>
+
+    <!-- 当是分配订单时候，出现分配的服务队 -->
+    <view wx:if='{{(!item.helperRate)&&helper_type==2&&(item.assignFlag==2||item.assignFlag==1)}}' class='order_assign_helper_box'>
+        <view class='order_assign_helper_left'>
+          <!-- <image wx:if='{{item.helper!=undefined&&item.helper.headImg!=undefined}}' class='order_assign_helper_img' src='{{res_ctx}}/{{item.helper.headImg}}'></image> -->
+          <image class='order_assign_helper_img' src='/images/sculpture_default.png'></image>
+          <text class='order_assign_helper_name'>{{item.helper.name}}</text>
+        </view>
+        <view class='order_assign_helper_right'>
+            {{item.helper.phone}}
+        </view>
+    </view>
+  </view>
+</view>
+
+<!-- 点击拒绝接单按钮时候出现的取消弹框 -->
+<view class='cancel_box' hidden='{{ifHidden_cancel_box}}'>
+  <view class='cancel_inner_box'>
+    <view class='cancel_header'>订单拒绝理由</view>
+    <view class='cancel_select_box'>
+      <view class='cancel_select_inner_box'>
+        <view class='cancel_txt'>{{cancel_obj.cancal_slect0.val}}</view>
+        <image class='cancel_img' data-id='0' bindtap='cancel_select' src='{{cancel_obj.cancal_slect0.img}}'></image>
+      </view>
+      <view class='cancel_select_inner_box'>
+        <view class='cancel_txt'>{{cancel_obj.cancal_slect1.val}}</view>
+        <image class='cancel_img' data-id='1' bindtap='cancel_select' src='{{cancel_obj.cancal_slect1.img}}'></image>
+      </view>
+      <view class='cancel_select_inner_box'>
+        <view class='cancel_txt'>{{cancel_obj.cancal_slect2.val}}</view>
+        <image class='cancel_img' data-id='2' bindtap='cancel_select' src='{{cancel_obj.cancal_slect2.img}}'></image>
+      </view>
+      <view class='cancel_select_inner_box other'>
+        <view class='cancel_select_inner_top_box'>
+          <view class='cancel_txt'>{{cancel_obj.cancal_slect3.val}}</view>
+          <image class='cancel_img' data-id='3' bindtap='cancel_select' src='{{cancel_obj.cancal_slect3.img}}'></image>
+        </view>
+        <input placeholder='请输入拒绝原因' bindinput='bind_cancel_reason' value='{{cancel_reason}}' hidden='{{ifHidden_cancel_write_box}}' class='cancel_write_txt'></input>        
+      </view>
+
+    </view>
+    
+    <view class='cancel_btn_box'>
+      <button class='cancel_btn_cancel' bindtap='cancel_btn_refuse'>拒绝订单</button>
+      <button class='cancel_btn_again' bindtap='cancel_btn_again'>我再想想</button>
+    </view>
+  </view>
+</view>
+
+
+
+<view class='page_shade' hidden="{{ifHideShade}}"></view>

@@ -1,0 +1,52 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>欢迎注册</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='register_outter_box'>
+	<view class='register_box'>
+		<view class='register_header'>
+			<view class='register_line'></view>
+			<text class='register_text'>请选择您的身份</text>
+			<view class='register_line'></view>
+		</view>
+
+		<view class='register_type_outter_box'>
+			<view class='register_type_box' bindtap='select_type' data-register='1'>
+				<image class='register_type_img' src='/images/{{type==1?"geren_xuan":"geren_no"}}.png'></image>
+				<view class='register_type_txt {{type==1?"index":""}}'>个人</view>
+			</view>
+			<view class='register_type_box' bindtap='select_type' data-register='2'>
+				<image class='register_type_img' src='/images/{{type==1?"qiye_xuan":"qiye_no"}}.png'></image>
+				<view class='register_type_txt {{type==2?"index":""}}'>企业</view>
+			</view>
+		</view>
+		<view class='register_header'>
+			<view class='register_line'></view>
+			<text class='register_text'>{{type==1?'身份证号':'社会统一信用代码'}}</text>
+			<view class='register_line'></view>
+		</view>
+
+		<input type='text' bindinput='setNumber' value='{{number}}' class='id_number' placeholder='{{type==1?"请输入身份证号":"请输入社会统一信用代码"}}'></input>
+
+		<view class='register_header'>
+			<view class='register_line'></view>
+			<text class='register_text'>请上传证件信息</text>
+			<view class='register_line'></view>
+		</view>
+
+		<view class='certificate_img_box' wx:if='{{type==1}}'>
+			<image class='certificate_img' wx:if='{{pic1==""}}' bindtap='select_img' data-upload='1' src='/images/pic_IDcard_z.png'></image>
+			<image class='certificate_img' wx:else bindtap='select_img' data-upload='1' src='{{res_ctx}}/{{pic1}}'></image>
+
+			<image class='certificate_img' wx:if='{{pic2==""}}' bindtap='select_img' data-upload='2' src='/images/pic_IDcard_f.png'></image>
+			<image class='certificate_img' wx:else bindtap='select_img' data-upload='2' src='{{res_ctx}}/{{pic2}}'></image>
+		</view>
+		<view class='certificate_img_box'  wx:else>
+		<image class='certificate_img' wx:if='{{pic3==""}}' bindtap='select_img' data-upload='3' src='/images/pic_yyzh.png'></image>
+			<image class='certificate_img' wx:else bindtap='select_img' data-upload='3' src='{{res_ctx}}/{{pic3}}'></image>
+		</view>
+	</view>
+</view>
+<view class='register_btn' bindtap='register_btn'>完成</view>

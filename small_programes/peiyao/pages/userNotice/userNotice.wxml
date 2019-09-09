@@ -1,0 +1,8 @@
+<!--pages/userNotice/userNotice.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>用户协议</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<rich-text class='userNotice_txt' nodes='{{userNotice_txt}}'></rich-text>

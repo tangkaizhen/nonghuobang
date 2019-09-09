@@ -1,0 +1,332 @@
+/* pages/wallet/wallet.wxss */
+.empty_custom{
+  border-bottom: none;
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+  color: #fff
+}
+.custom{
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+  color: #fff
+} 
+.custom text{
+  color: #fff
+}
+.wallet_top{
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  padding: 80rpx 0 200rpx;
+}
+.my_bank_list_box{
+  height:250rpx;
+  overflow-y:auto;
+}
+.wallet_total_num{
+  font-size: 60rpx;
+  font-weight: bold;
+  margin-bottom: 34rpx
+}
+.wallet_total_txt{
+  font-size: 32rpx
+}
+.wallet_month_box{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  padding: 20rpx 0;
+  width: 100%;
+  background: #2abc90
+}
+.wallet_month_income{
+  flex-grow:1;
+  height: 80rpx;
+  border-right: 1rpx solid #fff
+}
+.wallet_month_income_num{
+  font-size: 32rpx;
+  margin-bottom: 10rpx
+}
+.wallet_month_income_txt{
+  font-size: 28rpx
+}
+.wallet_month_delay{
+  flex-grow:1;
+  height: 80rpx
+}
+.wallet_month_delay_num{
+  font-size: 32rpx;
+  margin-bottom: 10rpx
+}
+.wallet_month_delay_txt{
+  font-size: 28rpx
+}
+.wallet_list{
+  padding: 0 50rpx;
+}
+.wallet_list_inner_box{
+  border-bottom: 1rpx solid #eee;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 38rpx 0;
+}
+.wallet_list_img_box{
+  display: flex;
+  align-items: center
+}
+.wallet_list_img{
+  width: 35rpx;
+  height: 35rpx
+}
+.wallet_list_txt{
+  font-size: 32rpx;
+  margin-left: 20rpx
+}
+.wallet_list_right{
+  width: 12rpx;
+  height: 20rpx
+}
+.withdraw_btn{
+  height: 80rpx;
+  width: 90%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+  margin: 0 auto;
+  border-radius: 40rpx;
+  color: #fff;
+  box-shadow: 0 8rpx 8rpx rgba(71,233,171,0.3);
+  border: none;
+  margin-top: 20rpx
+}
+.withdraw_box{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  z-index: 2;
+  padding: 30rpx 30rpx
+}
+.withdraw_inner_box{
+
+}
+.withdraw_box_close{
+  position: absolute;
+  right: 20rpx;
+  top:20rpx
+}
+.withdraw_header{
+  font-size: 30rpx;
+  color: #2dc979;
+  padding-bottom: 24rpx;
+  border-bottom: 6rpx solid #2dc979;
+  display: inline-block;
+  padding: 0 24rpx 24rpx;
+  margin-bottom: 48rpx;
+}
+.withdraw_small_header{
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+.withdraw_num_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 42rpx;
+  margin: 40rpx 0 20rpx;
+}
+.withdraw_num_icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.withdraw_num{
+  font-size: 42rpx;
+}
+.withdraw_num_clear{
+  width: 30rpx;
+  height: 30rpx;
+}
+.withdraw_reminder{
+  font-size: 26rpx;
+  color: #ccc;
+  margin: 20rpx 0 30rpx 20rpx;
+}
+.my_bank_list{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-top: 1rpx solid #eee;
+    padding: 30rpx 0;
+}
+.my_bank_list_left{
+  display: flex;
+  align-items: center
+}
+.my_bank_select{
+  width: 32rpx;
+  height: 21rpx;
+}
+.my_bank_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+}
+.my_bank_name{
+  font-size: 30rpx;
+  color: #333
+}
+.withdraw_new_bank{
+  border-top: 1rpx solid #eee;
+  padding: 30rpx 0 30rpx 10rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+}
+.withdraw_new_txt{
+  font-size: 30rpx;
+  color: #333;
+}
+.withdraw_new_bank_right{
+  width: 12rpx;
+  height: 20rpx;
+}
+.withdraw_num_btn{
+  height: 80rpx;
+  width: 90%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+  margin: 0 auto;
+  border-radius: 40rpx;
+  color: #fff;
+  box-shadow: 0 8rpx 8rpx rgba(71,233,171,0.3);
+  border: none;
+  margin-top: 20rpx
+}
+
+
+.pass_box{
+	width: 80%;
+  background: #fff;
+  position: fixed;
+  z-index: 5;
+  top: 30%;
+  left: 10%;
+  border-radius: 10rpx;
+  }
+.pass_header{
+	width:100%;
+	height:60rpx;
+	line-height:80rpx;
+	font-size:38rpx;
+	text-align:center;
+	position:relative;
+  }
+.close_btn{
+	position:absolute;
+	left: 30rpx;
+  font-size: 26rpx;
+  }
+.pass_content{
+	width:100%;
+	text-align:center;
+  }
+.pass_withdraw_num_box{
+	font-size:32rpx;
+	text-align:center;
+	width:100%;
+	margin-top: 30rpx;
+  margin-bottom:30rpx;
+  }
+label{
+		display: block;
+	}
+.pass_ul{
+	border: 1rpx solid #c8c8c8;
+	font-size: 0;
+	display: inline-block;
+	position: relative;
+	font-size: 0;
+}
+.pass_li{
+	display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  font-size:46rpx;
+  font-weight: 700;
+  text-align: center;
+  line-height:70rpx;
+  border-left: 1rpx solid #e6e6e6;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.pass_li:first-child {
+  border-left: none;
+}
+#ipt{
+	margin: 0;
+	padding: 0;
+	width: 1rpx;
+	opacity: 0;
+	height: 1rpx;
+	border: none;
+	}
+.pass_box_ul{
+  font-size: 38rpx;
+  width: 86%;
+  margin-top: 20rpx;
+  border-top: 1rpx solid #eee;
+  padding: 20rpx 0;
+  margin-left: 7%;
+  display: flex;
+}		
+.pass_box_li{
+  flex-grow: 1;
+  width: 49.5%;
+  text-align: center;
+}		
+.pass_box_li:nth-child(1){
+    color: #0075ff;
+}		
+.pass_box_li:nth-child(2){
+
+}		
+
+
+/* 密码弹窗框 */
+.UI-toast {
+  position: fixed;top: 35%;left: 20%;transform: translateZ(0) translateY(-100%);background: rgba(0, 0, 0, 0.7);color: #fff;font-size: 14px;width: 60%;line-height: 1.5em;margin: 0 auto;box-sizing: border-box;
+  padding: 10px;text-align: center;border-radius: 4px;z-index: 100;
+}
+.itemStyle{
+  width:80rpx;height:80rpx;border-radius:6rpx;border:1rpx solid #dadada;overflow: hidden;position: relative;
+}
+.pas_input {
+  border: 0;color: #fff;font-size: 24rpx;height: 80rpx;opacity: 0;overflow: hidden;position: absolute;z-index: 8;width: 100%;left: -100rpx;
+}
+.nextStyle {
+  width:100%;height:100rpx;background-color:#3CB371;color:#fff;font-size:34rpx;position:fixed;bottom:0px;display:flex;align-items:center;
+  justify-content:center;
+}
+.backgroundViewStyle{
+  background:white;margin-top:30rpx;border-top:1rpx solid #e5e5e5;
+}
+.headTextStyle{
+  font-size:30rpx;color:#333;font-weight:bold;
+}
+.pwdInputStyle{
+  height:160rpx;display:flex;align-items:center;justify-content:center;
+}
+.PwdStyle{
+  font-size:70rpx;
+}
+.leftRightMarginStyle{
+  margin:0px 30rpx;
+}

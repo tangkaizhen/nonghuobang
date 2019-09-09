@@ -1,0 +1,19 @@
+/* pages/edite_name/edite_name.wxss */
+page{
+  background: #f2f2f2
+}
+.name_box{
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 50rpx;
+}
+.person_name{
+  font-size: 32rpx;
+}
+.name_save{
+  font-size: 24rpx;
+  width: 50rpx;
+  margin: 0;
+  padding: 0
+}

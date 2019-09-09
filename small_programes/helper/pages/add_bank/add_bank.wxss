@@ -1,0 +1,64 @@
+/* pages/add_bank/add_bank.wxss */
+page{
+  background: #fafafa
+}
+.bank_small_header{
+  font-size: 24rpx;
+  color: #999;
+  padding: 50rpx 0 18rpx 36rpx
+}
+.bank_content_box{
+  background: #fff;
+  padding: 0 36rpx;
+}
+.bank_content_list{
+  border-top: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  line-height: 100rpx; 
+}
+.bank_content_list.type{
+  justify-content: space-between
+}
+.bank_content_name{
+  font-size: 32rpx;
+  color: #333;
+  margin-right: 24rpx
+}
+.bank_content_value{
+  font-size: 32rpx;
+  color: #333
+}
+.bank_content_value.identity{
+  width:80%;
+}
+.bank_content_list_right{
+  display: flex;
+  align-items: center;
+}
+.bank_content_type{
+  text-align: right;
+  font-size: 32rpx;
+  padding-right: 15rpx
+}
+.bank_content_type_box{
+  display: flex;
+  align-items: center
+}
+.bank_content_type_icon{
+  width: 12rpx;
+  height: 20rpx;
+}
+.add_bank_btn{
+  background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+  color: #fff;
+  font-size: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  width: 94%;
+  left: 3%;
+  position: fixed;
+  bottom: 30rpx
+}

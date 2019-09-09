@@ -1,0 +1,51 @@
+<!--pages/home_location/home_location.wxml-->
+
+<view class='lcoation_box'>
+  <view class='lcoation_top_box'>
+    <image class='close_btn' bindtap='close_btn' src='/images/btn_nav_x_white.png'></image>
+    <view class='lcoation_header_box'>
+      <view class='lcoation_header'>定位</view>
+      <view class='auto_location'>
+        <image class='icon_gps_icon' src='/images/icon_gps.png'></image>
+        <text class='auto_location_txt' bindtap='auto_location'>{{auto_location_txt}}</text>
+      </view>
+    </view>
+
+    <view class='lcoation_small_header'>城市</view>
+    <input bindtap='to_write' disabled='true' class='city_input' placeholder='输入城市名查询'></input>
+    <view class='lcoation_small_header'>当前位置</view>
+    <view class='lcoation_current'>{{recevie_order_position_obj.province}}，{{recevie_order_position_obj.city}}，{{recevie_order_position_obj.district}}</view>
+  </view>
+  
+    <scroll-view class='history_hot_more_box' scroll-y scroll-with-animation scroll-into-view='{{toView}}'>
+      <view class='lcoation_small_header' id="inToViewhistory">历史定位过的城市</view>
+      <view class='history_city_box'>
+        <view class='history_city' wx:for='{{history}}' data-city='{{item}}' bindtap='select_city' wx:key='index'>{{item}}</view>
+      </view>
+
+      <view class='lcoation_small_header' id="inToViewhot">热门城市</view>
+      <view class='hot_city_box'>
+        <view class='hot_city' wx:for='{{hotCities}}' data-city='{{item}}' bindtap='select_city' wx:key="index">{{item}}</view>
+      </view>
+
+
+      <view class='more_city_box' wx:for='{{more_city}}' wx:key="index">
+          <block wx:if='{{item!="当前"&&item!="历史"&&item!="热门"}}'>
+            <view class='Letter-header' id='inToView{{item}}'>{{item}}</view>
+            <view class='Letter-city-box'>
+                <view class='Letter-city' wx:for='{{cityData}}' data-city='{{itemCity.name}}' bindtap='select_city'  wx:key="id" wx:for-item="itemCity" wx:if='{{itemCity.letter==item}}'>{{itemCity.name}}</view>
+            </view>
+          </block>
+      </view>
+    </scroll-view>
+</view>
+
+<view class='city-ding'>
+  <block wx:for='{{more_city}}' wx:key="index">
+    <view class='city-item' bindtap='scrollToViewFn' data-id='{{item}}'>{{item}}</view>
+  </block>
+</view>
+
+
+
+

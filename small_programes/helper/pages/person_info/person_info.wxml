@@ -1,0 +1,56 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>{{helper_type==2?"企业信息":"个人信息"}}</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='person_info_list' bindtap='select_headerImg'>
+  <view class='person_info_name'>头像</view>
+  <view class='person_img_box'>
+    <image class='person_img' wx:if='{{helper.headImg==undefined||helper.headImg=="undefined"}}' src='/images/sculpture_default_regular_r_99.png'></image>
+    <image class='person_img' wx:else src='{{res_ctx}}/{{helper.headImg}}'></image>
+    <image class='person_img_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='person_info_list' bindtap='to_edite_name'>
+  <view class='person_info_name'>{{helper_type==2?"企业名称":"姓名"}}</view>
+  <view class='person_name_box'>
+    <input class='person_info_value' disabled value='{{helper.name}}' placeholder='请输入姓名'></input>
+    <image class='person_name_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='person_info_list' bindtap='to_edite_phone'>
+  <view class='person_info_name'>联系电话</view>
+  <view class='person_tel_box'>
+    <text class='person_info_value'>{{phone_front}}****{{phone_end}}</text>
+    <image class='person_tel_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='person_info_list' bindtap='to_select_position'>
+  <view class='person_info_name'>所在地区</view>
+  <view class='person_info_position_box'>
+    <input class='person_info_position' value='{{recevie_order_position_obj.province}}-{{recevie_order_position_obj.city}}-{{recevie_order_position_obj.district}}-{{recevie_order_position_obj.street}}' disabled></input>
+    <image class='person_info_position_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+
+<view class='person_info_list'>
+  <view class='person_info_name'>认证状态</view>
+  <text class='authentication_status' wx:if='{{helper.nhbAuth}}'>已认证</text>
+  <text class='authentication_status' style='color:#ff0000' wx:else>未认证</text>
+</view>
+<view class='person_info_list' wx:if='{{helper_type!=3}}'>
+  <view class='person_info_name'>审核状态</view>
+  <text wx:if='{{helper.flag==3}}' class='audit_status'>已审核</text>
+  <text wx:elif='{{helper.flag==2}}' class='audit_status'>审核中</text>
+  <view wx:elif='{{helper.flag==1}}' bindtap='to_check' class='audit_status_no_box'>
+    <text class='audit_status_no' style='color:#ccc'>未审核</text>
+    <image class='audit_status_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+  <view wx:else class='audit_status_no_box' bindtap='to_check'>
+    <text class='audit_status_no' style='color:#ff0000'>{{helper.checkResult}}</text>
+    <image class='audit_status_select' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='page_shade' hidden='{{ifHidden_page_shade}}'></view>
+

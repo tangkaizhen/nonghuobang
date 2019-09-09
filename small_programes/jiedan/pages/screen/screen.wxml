@@ -1,0 +1,78 @@
+<!--pages/screen/screen.wxml-->
+
+<view class='screen_box'>
+  <image class='close_btn' bindtap='close_btn' src='/images/btn_nav_x_white.png'></image>
+  <view class='screen_header_box'>
+    <text class='screen_header'>筛选排序</text>
+    <text class='screen_header_btn'>重置</text>
+  </view>
+
+  <view class='screen_small_header'>地区筛选</view>
+  <view class='position_select_box'>
+    <view class='position_select_innerbox' bindtap='position_select_city_btn'>
+      <input value='{{city}}' disabled class='position_select_city'></input>
+      <image class='position_select_city_btn' src='/images/icon_pullDown_white.png'></image>
+    </view>
+    <view class='position_select_district_box' hidden='{{hidden_district_box}}'>
+      <view class='screen_small_header'>请选择您所在的行政区</view>
+      <view class='position_select_district_innerbox'>
+        <view class='position_select_district' bindtap='select_district' data-name='不限'>
+          <text class='position_select_district_header'>不限</text>
+          <image wx:if='{{select_district=="不限"}}' class='select_district_img'  src='/images/icon_nike.png'></image>
+        </view>
+        <view wx:for='{{districtData}}' bindtap='select_district' class='position_select_district' data-name='{{item.name}}' wx:key='index'>
+          <text class='position_select_district_header'>{{item.name}}</text>
+          <image wx:if='{{item.name==select_district}}' class='select_district_img' src='/images/icon_nike.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='screen_small_header'>作业类型（可多选）</view>
+  <!-- 筛选条件 -->
+  <cover-view class='filtrate_box'>
+    <cover-view class='filtrate_left_box'>
+      <cover-view class='filtrate_inner_box' data-index='1' bindtap='select_filtrate_type'>
+        <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type1}}.png'></cover-image>
+        <cover-view class='filtrate_type_txt'>全部类型</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view class='filtrate_right_box'>
+      <cover-view class='filtrate_inner_box' data-index='2' bindtap='select_filtrate_type'>
+        <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type2}}.png'></cover-image>
+        <cover-view class='filtrate_type_txt'>耕种</cover-view>
+      </cover-view>
+      <cover-view class='filtrate_inner_box' data-index='3' bindtap='select_filtrate_type'>
+        <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type3}}.png'></cover-image>
+        <cover-view class='filtrate_type_txt'>打药</cover-view>
+      </cover-view>
+      <cover-view class='filtrate_inner_box' data-index='4' bindtap='select_filtrate_type'>
+        <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type4}}.png'></cover-image>
+        <cover-view class='filtrate_type_txt'>收割</cover-view>
+      </cover-view>
+      <cover-view class='filtrate_inner_box' data-index='5' bindtap='select_filtrate_type'>
+        <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type5}}.png'></cover-image>
+        <cover-view class='filtrate_type_txt'>人工</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+
+  <view class='screen_small_header'>智能排序</view>
+  <view class='sort' data-name='智能排序' bindtap='sort_btn'>
+    <text class='sort_name'>智能排序</text>
+    <image wx:if='{{"智能排序"==select_sort}}' class='sort_img' src='/images/icon_nike.png'></image>
+  </view>
+  <view class='sort' data-name='成交最高' bindtap='sort_btn'>
+    <text class='sort_name'>成交最高</text>
+    <image wx:if='{{"成交最高"==select_sort}}' class='sort_img' src='/images/icon_nike.png'></image>
+  </view>
+  <view class='sort' data-name='距离最近' bindtap='sort_btn'>
+    <text class='sort_name'>距离最近</text>
+    <image wx:if='{{"距离最近"==select_sort}}' class='sort_img' src='/images/icon_nike.png'></image>
+  </view>
+  <view class='sort' data-name='评分最高' bindtap='sort_btn'>
+    <text class='sort_name'>评分最高</text>
+    <image wx:if='{{"评分最高"==select_sort}}' class='sort_img' src='/images/icon_nike.png'></image>
+  </view>
+</view>
+
+<button class='complete_btn' bindtap='complete_btn'>完成</button>

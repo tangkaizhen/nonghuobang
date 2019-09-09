@@ -1,0 +1,27 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>新增服务队</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+
+<view class='team_add_box'>
+  <view class='team_add_name_box'>
+    <text class='team_add_name'>服务队</text>
+    <input class='team_add_name_value' bindinput='nameInput' placeholder='请输入服务队名称' value='{{team.name}}'></input>
+  </view>
+  <view class='team_add_phone_box'>
+    <text class='team_add_phone'>手机号</text>
+    <input class='team_add_phone_value' bindinput='phoneInput' placeholder='请输入服务队手机号' type='number' maxlength='11' value='{{team.phone}}'></input>
+  </view>
+  <view class='team_add_ident_box'>
+    <text class='team_add_ident'>身份证号</text>
+    <input class='team_add_ident_value' bindinput='identInput' placeholder='请输入服务队身份证号' value='{{team.idCardNo}}' type='idcard'></input>
+  </view>
+  <view class='team_add_pass_box'>
+    <text class='team_add_pass'>密码</text>
+    <input class='team_add_pass_value' bindinput='passInput' placeholder='请输入服务队密码' value='{{team.pwd}}'></input>
+  </view>
+</view>
+
+<view class='team_add_save' bindtap='team_add_save'>保存</view>

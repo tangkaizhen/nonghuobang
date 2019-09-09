@@ -1,0 +1,89 @@
+/* pages/bind_order/bind_order.wxss */
+page{
+  background: #fafafa
+}
+.bind_box{
+  padding: 20rpx;
+  margin-bottom: 100rpx;
+}
+.bind_inner_box{
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+}
+.bind_img{
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+  border-radius: 45rpx;
+}
+.bind_status{
+  font-size: 24rpx;
+  color: #6cd986;
+  margin-top: 16rpx;
+}
+.bind_right_box{
+  flex-grow: 1;
+}
+.bind_name_box{
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+}
+.bind_name_price{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+.bind_name{
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+.bind_price{
+  font-size: 24rpx;
+  color: #333;
+}
+.bind_date{
+  font-size: 20rpx;
+  color: #999;
+}
+.bind_content_box{
+  margin-top: 20rpx;
+}
+.bind_header_box{
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+
+}
+.bind_position_box{
+  display: flex;
+  justify-content: space-between
+} 
+.bind_position{
+  font-size: 22rpx;
+  color: #666;
+}
+.bind_select_img{
+  width: 26rpx;
+  height: 26rpx;
+}
+.bind_medicine_complete{
+    display: block;
+    height: 70rpx;
+    width: 80%;
+    text-align: center;
+    font-size: 28rpx;
+    background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+    margin: 0 auto;
+    border-radius: 35rpx;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    position:fixed;
+    left:10%;
+    bottom:50rpx;
+}

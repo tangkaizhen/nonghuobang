@@ -1,0 +1,171 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>订单详情</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='order_outter_box' hidden='{{ifHidden_outter_box}}'>
+<view class='order_box'>
+  <view class='order_top'>
+    <view class='order_header'>
+      <text>{{order.jobType}}/{{order.cropsType}}</text>
+      <!-- <image src='/images/icon_dian.png' class='icon_dian' bindtap='icon_dian'></image> -->
+    </view>
+    <view class='order_positopn' wx:if='{{order.address==undefined}}'>{{order.province}}{{order.city}}{{order.district}}{{order.street}}</view>
+    <view class='order_positopn' wx:else>{{order.province}}{{order.city}}{{order.district}}{{order.street}}{{order.address}}</view>
+    
+    
+    <view class='order_status' wx:if="{{order.applyFlag==1}}">申请中</view>
+    <view class='order_status index'  wx:elif="{{order.applyFlag==3}}">申请未通过</view>
+    
+    <image src='/images/icon_quality_green2_bsd.png'  wx:if='{{order.flag==2}}' class='icon_quality_green2_bsd'></image>
+    <text class='underline_pay' hidden='true'>线下付款</text>
+    <!-- 这是点击三个点出现的弹框 -->
+    <!-- <view class='order_tel_cancel' hidden='{{ifHidden_order_tel_cancel}}'>
+      <view class='order_tel_box' bindtap='makePhoneCall'><image class='order_tel_cancel_img' src='/images/icon_phone_n.png'></image>联系客服</view>
+    </view> -->
+  </view>
+  <view class='farmer_box' bindtap='farmer_details'>
+    <view class='farmer_box_left'>
+        <text class='farmer_authentication index' wx:if='{{order.farmer.flag==3}}'>认证</text>
+        <text class='farmer_authentication' wx:else>未认证</text>
+        <image wx:if='{{order.farmer.headImg}}' src='{{res_ctx}}/{{order.farmer.headImg}}' class='farmer_img'></image>
+        <image wx:else src='/images/sculpture_default.png' class='farmer_img'></image>
+
+
+        <view class='farmer_name_box'>
+          <view class='farmer_name'>{{order.farmer.name}}</view>
+          
+          <view class='farmer_grade_box' wx:if='{{order.farmer.judge==5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ff6f26'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ff6f26'>非常棒</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{order.farmer.judge>=4.5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>很好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{order.farmer.judge>=4}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{order.farmer.judge>=3}}'>
+            <view class='farmer_grade_innerbox' style='background:#666'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#666'>一般</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{order.farmer.judge>=2}}'>
+            <view class='farmer_grade_innerbox' style='background:#333'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#333'>差</text>
+          </view>
+          <view class='farmer_grade_box' wx:else>
+            <view class='farmer_grade_innerbox' style='background:#000'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{order.farmer.judge}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#000'>非常差</text>
+          </view>
+        </view>
+    </view>
+
+    <image class='farmer_box_right next' src='/images/icon_forward_grey_s.png'></image>
+    <image class='farmer_box_right phone' hidden='true' src='/images/icon_phonecall.png'></image>
+  </view>
+
+  <view class='order_price_area'>
+    <block wx:if='{{order.jobType=="人工"}}'>
+        <view class='order_price_box'>
+          <text class='order_price_name'>订单单价:</text>
+          <view class='order_price_innerbox'>
+            <view class='order_price_value_box'>
+              <input class='order_price_value' value='{{order.price}}' type='digit' disabled  placeholder='输入价格'/>
+              <text class='order_price_unit'>元/亩</text>
+            </view>
+          </view>
+        </view>
+        <view class='order_person_box'>
+          <text class='order_person_name'>人工数量:</text>
+          <view class='order_person_value_box'>
+            <input class='order_person_value' value='{{order.helperNum}}' type='number' disabled placeholder='输入人工数量'/>
+            <text class='order_person_unit'>人</text>
+          </view>
+        </view>
+        <view class='order_days_box'>
+          <text class='order_days_name'>作业天数:</text>
+          <view class='order_days_value_box'>
+            <input class='order_days_value' value='{{order.jobDays}}' type='number' disabled placeholder='输入天数'/>
+            <text class='order_days_unit'>天</text>
+          </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class='order_price_box'>
+          <text class='order_price_name'>订单单价:</text>
+          <view class='order_price_innerbox'>
+            <view class='order_price_value_box'>
+              <input class='order_price_value' value='{{order.price}}' type='digit' disabled  placeholder='输入价格'/>
+              <text class='order_price_unit'>元/亩</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='order_area_box'>
+          <text class='order_area_name'>作业亩数:</text>
+          <view class='order_area_innerbox'>
+            <view class='order_area_value_box'>
+              <input class='order_area_value' value='{{order.area}}' type='digit' disabled placeholder='输入亩数'/>
+              <text class='order_area_unit'>亩</text>
+            </view>
+          </view>  
+        </view>
+    </block>
+    <view class='order_price_total_box'>
+      <text class='order_price_total_name'>小计:</text>
+      <view class='order_price_total_value_box'>
+        <input class='order_price_total_value' wx:if='{{order.jobType=="人工"}}' value='{{1*order.price*order.helperNum*order.jobDays}}' type='digit' disabled/>
+        <input class='order_price_total_value' wx:else value='{{1*order.price*order.area}}' type='digit' disabled/>
+        <text class='order_price_total_unit'>元</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='order_btn_box'>
+    <button class='order_btn_one {{recevie_btn_txt=="申请接单"?"index1":"index2"}}' wx:if='{{order.applyFlag==0}}' bindtap='applyOrder'>{{recevie_btn_txt}}</button>
+    <!-- 这时候表示申请中状态 -->
+    <button class='order_btn_one' wx:elif='{{order.applyFlag==1}}' style='background:#eee;border-color:#eee;color:#fff'>已申请</button>
+  </view>
+ 
+  <view class='farmer_info_box'>
+      <view class='farmer_info'>预订人:{{order.farmer.name}}</view>
+      <view class='farmer_info'>电话：{{order.farmer.phone}}</view>
+      <view class='farmer_info'>订单编号：{{order.orderNo}}</view>
+      <view class='farmer_info'>创建时间：{{order.createTime}}</view>
+      <view class='farmer_info'>备注：{{order.remarks}}</view>
+  </view>
+</view>
+
+<map id="map" longitude="{{order.longitude}}" latitude="{{order.latitude}}" markers='{{markers}}'></map>
+<view class='order_tel_cancel'>
+  <view class='order_tel_box' bindtap='makePhoneCall'>
+    <image class='order_tel_cancel_img' src='/images/icon_lianxikefu.png'></image>
+    <text>联系客服</text> 
+  </view>
+</view>
+</view>

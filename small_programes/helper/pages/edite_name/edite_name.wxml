@@ -1,0 +1,10 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>{{helper_type==2?'编辑企业名称':'编辑姓名'}}</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='name_box'>
+  <input placeholder='请输入姓名' value='{{name}}' bindinput='name' class='person_name'></input>
+  <button class='name_save' bindtap='name_save'>保存</button>
+</view>

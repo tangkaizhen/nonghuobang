@@ -1,0 +1,87 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.0",
+	"appid": "wxa64c9cda17213d26",
+	"projectname": "medicine_programe",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": 0,
+					"name": "配药工具第一步",
+					"pathName": "pages/add_medicine/add_medicine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "自定义",
+					"pathName": "pages/add_medicine_material/add_medicine_material",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "飞机",
+					"pathName": "pages/add_airplane/add_airplane",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "配药列表",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/medicine_details/medicine_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定订单",
+					"pathName": "pages/bind_order/bind_order",
+					"scene": null
+				}
+			]
+		}
+	}
+}

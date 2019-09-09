@@ -1,0 +1,25 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>账单详情</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='bill_box'>
+  <view class='bill_top'>
+    <image class='bill_success' src='/images/icon_done.png'></image>
+    <view class='bill_success_txt'>{{trade.type_val}}</view>
+    <view class='bill_success_date'>创建日期：{{trade.createTime}}</view>
+  </view>
+  <view class='bill_account_box'>
+    <text class='bill_account_name'>{{trade.bill_income_name}}</text>
+    <text class='bill_account_num'>{{trade.bill_income_num}}</text>
+  </view>
+  <!-- <view class='bill_order' wx:if='{{trade.order!=undefined||trade.order!="undefined"}}'>
+    <view class='bill_order_left'>
+      <view class='bill_order_type' wx:if='{{trade.order.jobType=="人工"}}'>人工/{{trade.order.cropsType}}</view>
+      <view class='bill_order_type' wx:else>{{trade.order.jobType}}/{{trade.order.cropsType}}</view>
+      <view class='bill_order_position'>{{trade.order.location}}</view>
+      <view class='bill_order_date'>作业日期：{{trade.order.expectDate}}</view>
+    </view>
+    <image class='bill_order_right' src='/images/icon_forward_grey.png'></image>
+  </view> -->
+</view>

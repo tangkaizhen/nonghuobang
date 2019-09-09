@@ -1,0 +1,72 @@
+<!--pages/recevie_order/recevie_order.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <view class='search_box' bindtap='to_search_box'>
+      <image class='search_box_logo' src='/images/icon_index_search.png'></image>
+      <text class='search_box_txt'>搜索</text>
+  </view>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='recevie_box'>
+  <view class='recevie_content' wx:for='{{order}}' wx:key='index'>
+    <view class='recevie_content_top' data-id='{{item.id}}' bindtap='to_order_details'>
+      <view class='recevie_content_authentication index' wx:if='{{item.farmer.flag==3}}'>认证</view>
+      <view class='recevie_content_authentication' wx:else>未认证</view>
+        <view class='recevie_content_top_inner'>
+          <view class='recevie_content_name_box'>
+            <image wx:if='{{item.farmer.headImg}}' src='{{res_ctx}}/{{item.farmer.headImg}}' class='farmer_img'></image>
+            <image wx:else src='/images/sculpture_default.png' class='farmer_img'></image>
+
+            <view class='farmer_name_box'>
+              <view class='farmer_name'>{{item.farmer.name}}</view>
+              
+              <view class='farmer_grade_box'>
+                <view class='farmer_grade_innerbox' wx:if='{{item.farmer.judge==5}}' style='background:#ff6f26'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>5.0</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=4.5}}' style='background:#ffbf00'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=3}}' style='background:#666'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:elif='{{item.farmer.judge>=2}}' style='background:#333'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <view class='farmer_grade_innerbox' wx:else style='background:#000'>
+                  <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+                  <text class='farmer_grade_value'>{{item.farmer.judge}}</text>
+                </view>
+                <text class='farmer_position'>{{item.location}}</text>
+              </view>
+            </view>  
+          </view>
+        </view>
+        <view class='recevie_content_distance'>{{item.distance}}km</view>
+    </view>
+
+    <view class='recevie_content_center' data-id='{{item.id}}' bindtap='to_order_details'>
+      <view class='recevie_content_header' wx:if='{{item.jobType=="人工"}}'>人工/{{item.cropsType}}/{{item.serviceType}}/{{item.helperNum}}天</view>
+      <view class='recevie_content_header' wx:else>{{item.jobType}}/{{item.cropsType}}/{{item.area}}亩</view>
+      <view class='recevie_content_price'>
+        <text class='recevie_content_price_unit'>￥</text>
+        <text class='recevie_content_price_value'>{{item.totalPrice}}</text>
+      </view>
+      <view class='recevie_content_date'>作业时间：{{item.expectDate}}</view>
+    </view>
+
+    <view class='recevie_btn {{click_recevie_btn_id==item.id?"index":""}}' data-id='{{item.id}}' bindtap='recevie_btn' wx:if='{{item.applyFlag==0}}'>
+        {{click_recevie_btn_id==item.id?recevie_btn_txt:'申请接单'}}
+    </view>
+
+    <button class='recevie_btn index' wx:else>已申请</button>
+  </view>
+</view>
+
+
+

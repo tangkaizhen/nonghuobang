@@ -1,0 +1,9 @@
+/* pages/userNotice/userNotice.wxss */
+.userNotice_txt{
+  margin:20rpx 30rpx;
+  font-size:28rpx;
+  line-height:38rpx;
+  width:94%;
+  margin-left:3%;
+  display:block;
+}

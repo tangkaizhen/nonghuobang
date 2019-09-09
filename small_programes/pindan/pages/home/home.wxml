@@ -1,0 +1,114 @@
+<!--pages/home/home.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <text>拼单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='my_order_outter_box' wx:if='{{helper_id!=undefined&&helper_id!=""&&!ifShowAuth}}'>
+  <view class='my_order_box' bindtap='to_my_order'>
+      <text class='my_order_txt'>查看我的拼单</text>
+      <image class='my_order_forward' src='/images/icon_forward_grey_s.png'></image>
+  </view>
+
+ <view class='order_outter_box' hidden='{{showList}}'>
+  <view class='order_inner_box'>
+    
+    <view class='order_content_box' wx:for='{{combineOrders}}' wx:key="*this">
+      <view class='order_content_header'>{{item.jobType}}/{{item.cropsType}}/{{item.serviceArea}}
+        <text class='order_content_unit'>亩</text>
+      </view>
+      <view class='order_content_position'>{{item.province}}{{item.city}}{{item.district}}{{item.address}}</view>
+      <view class='order_content_date'>作业时间：{{item.serviceDate}}</view>
+      <view class='order_content_contact'>
+        <text class='order_content_contact_person'>联系人：{{item.contactName}}</text>
+        <view class='order_content_contact_tel_box'>
+          <text class='order_content_contact_tel'>联系方式：{{item.contactPhone}}</text>
+          <image class='icon_tel' data-phone='{{item.contactPhone}}' src='/images/icon_tel.png' bindtap='makePhoneCall'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+ </view>
+<!-- <view class='map_outter_box' hidden='{{!showList}}'>
+  <map bindregionchange='regionchange' id="map" enable-overlooking='true' longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" polygons="{{polygons}}" bindmarkertap='marker_fn' markers='{{markers}}'></map>
+</view> -->
+ <!--搜索框 -->
+
+ <cover-view class='search_box'>
+  <cover-view class='search_inner_box' bindtap='to_search'>
+    <cover-view class='search_txt'>搜索</cover-view>
+    <cover-image class='search_img' src='/images/icon_index_search.png'></cover-image>
+  </cover-view>
+  <cover-view class='search_right_box'>
+    <!-- <cover-image class='search_type' bindtap='switch_order' src='{{search_type}}'></cover-image> -->
+    <cover-view class='search_filtrate_box' bindtap='toggle_filtrate_box'>
+      <cover-view class='search_filtrate_txt'>{{search_txt}}</cover-view>
+      <cover-image class='search_img_down' src='/images/icon_pulldown.png'></cover-image>
+    </cover-view>
+  </cover-view>
+ </cover-view>
+
+
+<!-- 筛选条件 -->
+<cover-view class='filtrate_box' hidden='{{isHideFil}}'>
+  <cover-view class='filtrate_left_box'>
+    <cover-view class='filtrate_inner_box' data-index='1' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type1}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>全部类型</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class='filtrate_right_box'>
+    <cover-view class='filtrate_inner_box' data-index='2' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type2}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>耕种</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='3' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type3}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>打药</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='4' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type4}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>收割</cover-view>
+    </cover-view>
+    <cover-view class='filtrate_inner_box' data-index='5' bindtap='select_filtrate_type'>
+      <cover-image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type5}}.png'></cover-image>
+      <cover-view class='filtrate_type_txt'>人工</cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>
+ 
+<view class='start_pindan' bindtap='to_start'>
+  <image class='start_pindan_img' src='/images/icon_collage_liebiao_xin.png'></image>
+  <view class='start_pindan_txt'>发起拼单</view>
+</view>
+
+<!-- 地图对应的弹框 -->
+<cover-view class='map_content_box' hidden='{{map_content_box}}'>
+  <cover-view class='map_content_header'>
+    <cover-view>收割</cover-view>
+    <cover-view class='map_content_unit'>亩</cover-view>
+  </cover-view>
+  <cover-view class='map_content_position'>江苏省无锡市江苏省无锡市江苏省无锡市</cover-view>
+  <cover-view class='map_content_date'>作业时间：2017.2.3</cover-view>
+  <cover-view class='map_content_contact'>
+    <cover-view class='map_content_contact_person'>联系人：一</cover-view>
+    <cover-view class='map_content_contact_tel_box'>
+      <cover-view class='map_content_contact_tel'>联系方式：1555412451424</cover-view>
+      <cover-image class='icon_tel' src='/images/icon_tel.png'></cover-image>
+    </cover-view>
+  </cover-view>
+</cover-view>
+</view>  
+
+<view wx:if='{{ifShowAuth}}'>
+	<view wx:if="{{authorization}}" class='start_box'>
+		<image class='start_logo' src='/images/icon_pindan_wechat.png'></image>
+		<button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">进入小程序</button>
+	</view>
+
+	<view wx:else class='refuse_authorization'>
+		<view class='refuse_txt1'>温馨提示!</view>
+		<view class='refuse_txt2'>为保证您正常使用，请先进行</view>
+		<button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始授权</button>
+	</view>
+</view>

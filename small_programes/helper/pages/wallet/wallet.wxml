@@ -1,0 +1,98 @@
+<!--pages/wallet/wallet.wxml-->
+<import src="../../module/pwdInput.wxml" />
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_nav_back_white.png'></image>
+  <text>钱包</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='wallet_top'>
+  <view class='wallet_total_num'>{{wallet.balance}}</view>
+  <view class='wallet_total_txt'>总金额（元）</view>
+  <view class='wallet_month_box'>
+    <view class='wallet_month_income'>
+      <view class='wallet_month_income_num'>{{wallet.income==''||wallet.income=='undefined'||wallet.income==undefined?0:wallet.income}}</view>
+      <view class='wallet_month_income_txt'>本月收入</view>
+    </view>
+    <view class='wallet_month_delay'>
+      <view class='wallet_month_delay_num'>{{wallet.unavailable}}</view>
+      <view class='wallet_month_delay_txt'>代收款</view>
+    </view>
+  </view>
+</view>
+
+<view class='wallet_list' bindtap='my_banks'>
+  <view class='wallet_list_inner_box'>
+    <view class='wallet_list_img_box'>
+      <image class='wallet_list_img' src='/images/icon_caiwu_card.png'></image>
+      <text class='wallet_list_txt'>我的银行卡</text>
+    </view>
+    <image class='wallet_list_right' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='wallet_list' bindtap='set_wallet_pass'>
+  <view class='wallet_list_inner_box'>
+    <view class='wallet_list_img_box'>
+      <image class='wallet_list_img' src='/images/icon_qianbao_mima.png'></image>
+      <text class='wallet_list_txt'>设置钱包密码</text>
+    </view>
+    <image class='wallet_list_right' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<view class='wallet_list' bindtap='to_my_bill'>
+  <view class='wallet_list_inner_box'>
+    <view class='wallet_list_img_box'>
+      <image class='wallet_list_img' src='/images/icon_list.png'></image>
+      <text class='wallet_list_txt'>我的账单</text>
+    </view>
+    <image class='wallet_list_right' src='/images/icon_forward_grey.png'></image>
+  </view>
+</view>
+<button bindtap='withdraw_box' class='withdraw_btn'>提现</button>
+
+<view class='page_shade' bindtap='close_withdraw_box' wx:if='{{ifShow_page_shade}}'></view>
+<view wx:if='{{ifShow_withdraw_box}}' class='withdraw_box'>
+  <view class='withdraw_inner_box'>
+    <text class='withdraw_box_close' bindtap='close_withdraw_box'>X</text>
+
+    <view class='withdraw_header'>提现至银行卡</view>
+    <view class='withdraw_small_header'>提现金额</view>
+
+    <view class='withdraw_num_box'>
+      <image class='withdraw_num_icon' src='/images/money_unit.png'></image>
+      <input placeholder='请输入您要提现的金额'  bindinput='bind_withdraw_num' value='{{withdraw_num}}' type='digit' class='withdraw_num'></input>
+      <image class='withdraw_num_clear' bindtap='withdraw_num_clear' src='/images/icon_clear.png'></image>
+    </view>
+
+    <view class='withdraw_reminder'>每次最多提现2000元</view>
+    <view class='withdraw_small_header'>我的银行卡</view>
+    <view class='my_bank_list_box'>
+      <view class='my_bank_list' wx:for='{{banks}}'wx:key="*this" data-id='{{item.id}}' bindtap='select_bank'>
+        <view class='my_bank_list_left'>
+          <image class='my_bank_icon' src='{{item.bank_logo}}'></image>
+          <text class='my_bank_name'>{{item.bank}}({{item.cardNo}})</text>
+        </view>
+        <image wx:if='{{select_bank_id==item.id}}' class='my_bank_select' src='/images/icon_nike.png'></image>
+      </view>
+    </view>
+    <view class='withdraw_new_bank' bindtap='to_add_bank'>
+      <text class='withdraw_new_txt'>提现至新银行卡</text>
+      <image class='withdraw_new_bank_right' src='/images/icon_forward_grey.png'></image>
+    </view>
+
+    <button class='withdraw_num_btn' bindtap='withdraw_num_btn'>确认提现</button>
+  </view>
+</view>
+
+<view class="pass_box" wx:if='{{ifShow_pass_box}}'>
+	<view class="pass_header">
+    钱包密码
+  </view>
+  <view class="pass_content">
+    <view class="pass_withdraw_num_box">请输入您的钱包密码。<text class="pass_withdraw_num"></text></view>
+    <template is="pwdInput" data="{{passWordArr: passWordArr}}"></template>
+  </view>
+  <view class="pass_box_ul">
+    <view class="pass_box_li" bindtap="onTapCommit">确定</view>
+    <view class="pass_box_li" bindtap='wallet_pass_box_cancel'>取消</view>
+  </view>
+</view>

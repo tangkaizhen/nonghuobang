@@ -1,0 +1,124 @@
+/* pages/home_location/home_location.wxss */
+page{
+  background: rgb(0,0,0)
+}
+.lcoation_box{
+  padding:100rpx 40rpx 40rpx;
+  color: #fff;
+}
+.close_btn{
+  width: 40rpx;
+  height: 40rpx;
+  position: fixed;
+  top: 50rpx;
+  z-index: 2;
+}
+.lcoation_header_box{
+  display: flex;
+  justify-content: space-between;
+  margin: 70rpx 0
+}
+.lcoation_header{
+  font-size: 50rpx;
+}
+.auto_location{
+  display: flex;
+  align-items: center
+}
+.icon_gps_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx
+}
+.auto_location_txt{
+  font-size: 24rpx;
+}
+.lcoation_small_header{
+  font-size: 26rpx;
+  font-weight: bold;
+  margin: 50rpx 0 40rpx
+}
+.city_input{
+  font-size: 38rpx;
+  text-align: center;
+  
+  padding-bottom:30rpx;
+  border-bottom: 1rpx solid #fff;
+  height:70rpx;
+  line-height:70rpx;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0
+}
+.details_input{
+  font-size: 38rpx;
+  text-align: center;
+  
+  padding-bottom:30rpx;
+  border-bottom: 1rpx solid #fff;
+  height:70rpx;
+  line-height:70rpx;
+}
+.city_input_box{
+  position: relative;
+  width: 100%;
+  height: 70rpx;
+  margin-top: 40rpx;
+}
+.city_input_del{
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  right: 20rpx;
+  top: 10rpx;
+  z-index: 3
+}
+.city_input_backspace{
+position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  right: 20rpx;
+  top: 10rpx;
+  z-index: 3
+}
+.search_city_box{
+  margin-top:-30rpx;
+}
+.search_item{
+  padding: 30rpx 0 20rpx;
+  border-bottom: 3rpx solid rgba(255,255,255,.75);
+  font-size: 30rpx;
+  color: rgba(255,255,255,.75);
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.icon_nike{
+  width: 35rpx;
+  height: 24rpx;
+}
+.complete_btn{
+    height:80rpx;
+  width:70%;
+  text-align:center;
+  line-height:80rpx;
+  font-size:28rpx;
+  background:#eee;
+  border-radius:40rpx;
+  color:#fff;
+  box-shadow:0 12rpx 12rpx rgba(0,0,0,0.05);
+  cursor:pointer;
+  border:none;
+  -webkit-appearance:none;
+  position:fixed;
+  bottom:50rpx;
+  left:15%;
+
+}
+.complete_btn.index{
+    background: linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+    box-shadow: rgba(71, 233, 171, 0.3) 0px 12rpx 12rpx;
+    border: none;
+}

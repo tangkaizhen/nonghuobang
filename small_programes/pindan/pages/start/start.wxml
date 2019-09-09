@@ -1,0 +1,14 @@
+
+<!--pages/start/start.wxml-->
+<view wx:if="{{authorization}}" class='start_box'>
+  <image class='start_logo' src='/images/icon_pindan_wechat.png'></image>
+  <button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">进入小程序</button>
+</view>
+
+<view wx:else class='refuse_authorization'>
+  <view class='refuse_txt1'>温馨提示!</view>
+  <view class='refuse_txt2'>为保证您正常使用，请先进行</view>
+  <button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始授权</button>
+</view>
+
+

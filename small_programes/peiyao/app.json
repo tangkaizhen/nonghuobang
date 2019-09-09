@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/start/start",
+    "pages/login/login",
+		"pages/register/register",
+    "pages/add_medicine/add_medicine",
+    "pages/medicine_details/medicine_details",
+    "pages/add_medicine_material/add_medicine_material",
+    "pages/add_airplane/add_airplane",
+    "pages/bind_order/bind_order",
+    "pages/userNotice/userNotice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "配药工具",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

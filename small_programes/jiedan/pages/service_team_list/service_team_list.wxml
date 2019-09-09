@@ -1,0 +1,31 @@
+<!--pages/service_team_list/service_team_list.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>服务队</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<cover-view class='search_box'>
+  <cover-view class='search_inner_box' bindtap='to_search'>
+    <cover-view class='search_txt'>搜索</cover-view>
+    <cover-image class='search_img' src='/images/icon_search.png'></cover-image>
+  </cover-view>
+  <cover-image class='icon_add' bindtap='team_add' src='/images/icon_add.png'></cover-image>
+</cover-view>
+
+<view class='service_box'>
+  <view class='service_innerbox' wx:for='{{groups}}' wx:key="*this" data-id='{{item.id}}' bindtap='assign_team'>
+    <view class='service_left'>
+      <image wx:if='{{item.headImg}}' src='{{res_ctx}}/{{item.headImg}}' class='service_img'></image>
+      <image wx:else src='/images/sculpture_default.png' class='service_img'></image>
+      <view class='service_name_box'>
+        <view class='service_name'>{{item.name}}</view>
+        <view class='service_tel'>{{item.phone}}</view>
+      </view>
+    </view>
+    <view class='service_right' wx:if='{{item.isEquipmentRepaired}}'>
+      <image class='icon_repair' src='/images/icon_repair.png'></image>
+      <text class='icon_repair_txt'>农机维修中</text>
+    </view>
+  </view>
+</view>

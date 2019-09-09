@@ -1,0 +1,24 @@
+<view class='top_box'>
+  <image class='back_last_page' src='/images/icon_back.png' bindtap='back_page'></image>
+</view>
+<view class='change_phone_outter'>
+  <view class='change_phone_inner'>
+    <view class='change_phone_main_header'>变更手机号（1/2步）</view>
+    <text class='change_phone_header'>手机号码</text>
+    <view class='change_phone_tel_box'>
+      <input class='change_phone_tel_val' disabled maxlength='11' bindinput='bind_helper_tel' value='{{helper_tel}}' type='number' placeholder='请输入电话号码'></input>
+    </view>
+    <text class='change_phone_header'>登录密码</text>
+    <view class='change_phone_tel_box'>
+      <input class='change_phone_tel_val' maxlength='11' bindinput='bind_helper_pass' value='{{helper_pass}}' type='number' placeholder='请输入登录密码'></input>
+    </view>
+    <text class='change_phone_header'>短信验证码</text>
+    <view class='change_phone_verification_box'>
+      <input class='change_phone_verification_val' type='number' maxlength='6' bindinput='bind_helper_code' value='{{verification_code}}' placeholder='请输入验证码'></input>
+      <button class='change_phone_verification_btn' bindtap='get_verification'>{{verification}}</button>
+    </view>
+    <button class='change_phone_next' bindtap='to_next'>验证</button>
+  </view>
+</view>
+
+<view class='page_shade' hidden='{{ishiddenBg}}'></view>

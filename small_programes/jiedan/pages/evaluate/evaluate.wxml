@@ -1,0 +1,47 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>订单评价</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view hidden='{{ifHidden_outter_box}}'>
+<view class='evaluate_top'>
+  <view class='evaluate_order_header'>订单</view>
+  <view class='evaluate_order_box'>
+    <view class='evaluate_order_left'>
+        <view class='evaluate_order_name' wx:if='{{order.jobType=="人工"}}'>{{order.jobType}}/{{order.cropsType}}{{order.serviceType}}/{{order.jobDays}}天</view>
+        <view class='evaluate_order_name' wx:else>{{order.jobType}}/{{order.cropsType}}/{{order.area}}亩</view>
+        <view class='evaluate_order_date'>作业日期：{{order.startTime}}~{{order.overTime}}</view>
+    </view>
+    <view class='evaluate_order_right'>
+        ￥{{order.totalPrice}}
+    </view>
+  </view>
+</view>
+
+<view class='evaluate_box'>
+  <view class='evaluate_header'>服务评星</view>
+  <view class='evaluate_start_box'>
+    <image class='evaluate_start_img' data-id='0' bindtap='evaluate_start' src='{{star.star0}}'></image>
+    <image class='evaluate_start_img' data-id='1' bindtap='evaluate_start' src='{{star.star1}}'></image>
+    <image class='evaluate_start_img' data-id='2' bindtap='evaluate_start' src='{{star.star2}}'></image>
+    <image class='evaluate_start_img' data-id='3' bindtap='evaluate_start' src='{{star.star3}}'></image>
+    <image class='evaluate_start_img' data-id='4' bindtap='evaluate_start' src='{{star.star4}}'></image>
+  </view>
+  <view class='evaluate_header'>评价标签</view>
+  <view class='evaluate_tag_box'>
+    <text class='evaluate_tag {{tag.tag0.ifEvaluate?"index":""}}' data-id='0' bindtap='evaluate_tag'>{{tag.tag0.txt}}</text>
+    <text class='evaluate_tag {{tag.tag1.ifEvaluate?"index":""}}' data-id='1' bindtap='evaluate_tag'>{{tag.tag1.txt}}</text>
+    <text class='evaluate_tag {{tag.tag2.ifEvaluate?"index":""}}' data-id='2' bindtap='evaluate_tag'>{{tag.tag2.txt}}</text>
+  </view>
+  <view class='evaluate_header'>服务评价</view>
+  <textarea class='evaluate_txt' placeholder="请在此输入您的评价" bindinput='evaluate_txt' maxlength="100"></textarea>
+  <view class='evaluate_header'>上传照片</view>
+  <view class='icon_upload_box'>
+    <image class='icon_upload' mode="aspectFill" wx:for='{{imagesPath}}' data-index='{{index}}' bindtap='chooseImage' src='{{item}}'></image>
+    <image class='icon_upload' wx:if='{{imagesPath.length<3}}' bindtap='chooseImage' src='/images/icon_upload.png'></image>
+  </view>
+</view>
+
+<button class='evaluate_btn' bindtap='evaluate_btn'>发表评价</button>
+</view>

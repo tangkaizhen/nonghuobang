@@ -1,0 +1,47 @@
+<!--pages/add_airplane/add_airplane.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>绑定订单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='bind_box'>
+  <view class='bind_inner_box' wx:for='{{orders}}' wx:key='{{item.id}}' bindtap='select_order' data-index='{{index}}'>
+    <image wx:if='{{item.farmer.headImg}}' src='{{res_ctx}}/{{item.farmer.headImg}}' class='bind_img'></image>
+    <image wx:else src='/images/icon_geren_wechat.png' class='bind_img'></image>
+    <view class='bind_right_box'>
+      <view class='bind_name_box'>
+        <view class='bind_name_price'>
+          <text class='bind_name'>{{item.farmer.name}}</text>
+          <text class='bind_price'>￥{{item.totalPrice}}</text>
+        </view>
+        <view class='bind_date'>{{item.createTime}}</view>
+      </view>
+      <view class='bind_content_box'>
+        <view class='bind_header_box'>{{item.jobType}}/{{item.cropsType}}/{{item.area}}亩</view>
+        <view class='bind_position_box'>
+          <text class='bind_position'>{{item.province}}{{item.city}}{{item.district}}{{item.street}}{{item.address}}</text>
+          <image src='{{item.ifSelect==true?"/images/icon_radio1_s.png":"/images/icon_radio1_n.png"}}' class='bind_select_img'></image>
+        </view>
+        <view class='bind_status' wx:if="{{item.applyFlag==1}}">申请中</view>
+        <view class='bind_status' style='color:#333' wx:elif="{{item.applyFlag==3}}">申请未通过</view>
+        <view class='bind_status' wx:elif="{{item.state==1}}">待确认</view>
+        <block wx:elif="{{item.state==2}}">
+          <view class='bind_status' wx:if="{{helper_type==3&&item.assignFlag==1}}">待确认</view>
+          <view class='bind_status' style='color:#333' wx:elif="{{item.cancelFlag==1}}">已取消</view>
+          <view class='bind_status' wx:else>待作业</view>
+        </block>
+        <block wx:elif="{{item.state==8}}">
+          <!-- 这时候表示的是帮手点击取消订单之后出现的取消待确认状态 -->
+          <view class='bind_status' style='color:#333' wx:if="{{item.cancelFlag==1}}">已取消</view>
+          <view class='bind_status' wx:elif="{{item.updateFlag==1}}">修改价格待确认</view>
+          <view class='bind_status' wx:else>作业中</view>
+        </block>
+        <view class='bind_status' wx:elif="{{item.state==3}}">待结算</view>
+        <view class='bind_status' wx:elif="{{item.state==4&&item.helperRate==false}}">待评价</view>
+        <view class='bind_status' style='color:#333' wx:elif="{{item.helperRate==true}}">已完成</view>
+      </view>
+    </view>
+  </view>
+</view>
+<button class='bind_medicine_complete' bindtap='bind_medicine_complete'>保存</button>

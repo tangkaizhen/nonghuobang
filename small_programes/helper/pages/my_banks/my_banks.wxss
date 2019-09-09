@@ -1,0 +1,82 @@
+/* pages/my_banks/my_banks.wxss */
+.my_banks_box{
+  padding: 20rpx;
+}
+.my_banks_list{
+  margin-bottom: 40rpx;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, rgb(255, 71, 71), rgb(255, 89, 133));
+  box-shadow: rgb(251, 174, 59) 0px 1px 2px;
+  padding: 32rpx 20rpx;
+  color: #fff
+}
+.my_banks_list_left{
+  display: flex;
+  align-items: flex-start
+}
+.my_banks_logo{
+  width: 80rpx;
+  margin-right:22rpx;
+}
+
+.my_banks_name{
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.my_banks_remark{
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+}
+.my_banks_num{
+  font-size: 48rpx;
+  display: flex;
+  align-items: center
+}
+.my_banks_num_value{
+  position: relative;
+  top: -8rpx
+}
+.my_banks_operate{
+  width: 26rpx;
+}
+.add_bank{
+  color: #6cd986;
+  font-size: 36rpx;
+  border: 2rpx dashed #6cd986;
+  width: 100%;
+  height: 94rpx;
+  text-align: center;
+  line-height: 94rpx;
+}
+
+.my_banks_operate_box{
+  background: #fafafa;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 27rpx;
+  padding: 30rpx;
+  z-index: 10;
+  border-top: 1rpx solid #eee
+}
+.my_banks_del{
+    margin-bottom: 30rpx;
+    color: #fff;
+    background: linear-gradient(to right, #ff805e, #ff2e2e);
+    box-shadow: 0 0 10rpx #ff5d5d;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+}
+.my_banks_cancel{
+    color: #0095ff;
+    background: #fff;
+    box-shadow: 0 0 10rpx #ccc;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+}

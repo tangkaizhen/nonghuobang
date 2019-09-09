@@ -1,0 +1,94 @@
+<!--pages/evaluate_list/evaluate_list.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>评价</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+
+<view class='evaluate_kind_box'>
+  <view class="evaluate_kind {{rateType==1?'index':''}}" data-rate='1' bindtap='select_kind'>我的评价</view>
+  <view class="evaluate_kind {{rateType==2?'index':''}}" data-rate='2' bindtap='select_kind'>农户评价</view>
+</view>
+
+<view></view>
+<view class='evaluate_type_box'>
+  <text class='evaluate_type {{evaluate_type_index.evaluate_type0?"index":""}}' data-index='0' bindtap='evaluate_type'>全部</text>
+  <text class='evaluate_type {{evaluate_type_index.evaluate_type1?"index":""}}' data-index='1' bindtap='evaluate_type'>好评</text>
+  <text class='evaluate_type {{evaluate_type_index.evaluate_type2?"index":""}}' data-index='2' bindtap='evaluate_type'>中评</text>
+  <text class='evaluate_type {{evaluate_type_index.evaluate_type3?"index":""}}' data-index='3' bindtap='evaluate_type'>差评</text>
+</view>
+
+<view class='evaluate_box'>
+  <view class='evaluate_content_box'  wx:for='{{remarks}}' wx:key="*this">
+    <view class='evaluate_content_top'>
+      <view class='evaluate_person_box'>
+        <image wx:if='{{item.reviewer.headImg}}' src='{{res_ctx}}/{{item.reviewer.headImg}}' class='evaluate_person_img'></image>
+        <image wx:else src='/images/sculpture_default.png' class='evaluate_person_img'></image>
+        <text class='evaluate_person_name'>{{item.reviewer.name}}</text>
+      </view>
+      
+      
+      <view class='farmer_grade_box' wx:if='{{item.star==5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ff6f26'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ff6f26'>非常棒</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=4.5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>很好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=4}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=3}}'>
+            <view class='farmer_grade_innerbox' style='background:#666'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#666'>一般</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=2}}'>
+            <view class='farmer_grade_innerbox' style='background:#333'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#333'>差</text>
+          </view>
+          <view class='farmer_grade_box' wx:else>
+            <view class='farmer_grade_innerbox' style='background:#000'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#000'>非常差</text>
+          </view>  
+    </view>
+    <view class='evaluate_content_date'>{{item.createTime}}</view>
+    <view class='evaluate_content'>{{item.content}}</view>
+
+    <view class='evaluate_content_img_box'>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic1}}' src='{{res_ctx}}/{{item.remarkPic1}}'></image>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic2}}' src='{{res_ctx}}/{{item.remarkPic2}}'></image>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic3}}' src='{{res_ctx}}/{{item.remarkPic3}}'></image>
+    </view>
+
+    <view class='evaluate_order_box'>
+      <view class='evaluate_order_header'>{{item.order.jobType}}/{{item.order.cropsType}}/{{item.order.area==undefined||item.order.area=='undefined'?'':item.order.area+'亩/'}}</view>
+      <view class='evaluate_order_location'>江苏省</view>
+      <view class='evaluate_order_date'>{{item.order.createTime}}</view>
+    </view>
+  </view>
+</view>

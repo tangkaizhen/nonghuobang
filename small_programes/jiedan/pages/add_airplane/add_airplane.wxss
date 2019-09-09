@@ -1,0 +1,57 @@
+/* pages/add_airplane/add_airplane.wxss */
+.add_airplane_height_box,.add_airplane_speed_box,.add_airplane_range_box,.add_airplane_quantity_box,.add_airplane_order_box{
+  font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:96rpx;
+  line-height:96rpx;
+  border-bottom:1rpx solid #eee;
+  display:flex;
+  justify-content:space-between;
+}
+.add_airplane_height_name,.add_airplane_speed_name,.add_airplane_range_name,.add_airplane_quantity_name{
+
+}
+.add_airplane_height,.add_airplane_speed,.add_airplane_range,.add_airplane_quantity,.add_airplane_order{
+  text-align: right;
+  margin-right: 8rpx;
+  margin-top: 3rpx
+}
+.add_airplane_height_box_right,.add_airplane_speed_box_right,.add_airplane_range_box_right,.add_airplane_quantity_box_right,.add_airplane_order_box_right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+.add_airplane_height_unit,.add_airplane_speed_unit,.add_airplane_range_unit,.add_airplane_quantity_unit{
+
+}
+.add_airplane_order_box_right{
+  display: flex;
+  align-items: center
+}
+.add_airplane_order{
+  margin-top: 2rpx;
+  margin-right: 10rpx
+}
+.icon_more{
+  width: 12rpx;
+  height: 20rpx
+}
+.add_medicine_complete{
+  display: block;
+    height: 70rpx;
+    width: 80%;
+    text-align: center;
+    font-size: 28rpx;
+    background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+    margin: 0 auto;
+    border-radius: 35rpx;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    position:fixed;
+    left:10%;
+    bottom:50rpx;
+}

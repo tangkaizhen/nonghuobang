@@ -1,0 +1,39 @@
+/* pages/medicine_list/medicine_list.wxss */
+.medicine_list_box{
+  padding: 0 20rpx;
+}
+.medicine_list{
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.medicine_name{
+  font-size: 28rpx;
+}
+.medicine_logo{
+  width: 30rpx;
+  height: 30rpx;
+}
+.medicine_btn{
+  position:fixed;
+  width: 80%;
+  left:10%;
+  bottom:50rpx;
+  height: 70rpx;
+  text-align: center;
+  font-size: 28rpx;
+  background:linear-gradient(to right, rgb(108, 217, 134), rgb(34, 210, 172));
+  border-radius: 35rpx;
+  color: #fff;
+  border: none;
+  -webkit-appearance: none;
+}
+.medicine_add{
+  color:#6cd986;
+  font-size:28rpx;
+  border:#6cd986 dashed 2rpx;
+  width:584rpx;
+  margin: 30rpx auto
+}

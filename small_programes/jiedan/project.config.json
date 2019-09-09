@@ -1,0 +1,215 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.4",
+	"appid": "wx26509205fe07860e",
+	"projectname": "jiedan",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 23,
+			"list": [
+				{
+					"id": -1,
+					"name": "订单列表页",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order_details/order_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务队列表",
+					"pathName": "pages/service_team_list/service_team_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/evaluate/evaluate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价成功",
+					"pathName": "pages/evaluate_success/evaluate_success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "农户详情",
+					"pathName": "pages/famer_details/famer_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/evaluate_list/evaluate_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "接单",
+					"pathName": "pages/recevie_order/recevie_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "接单定位",
+					"pathName": "pages/home_location/home_location",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "手动填写",
+					"pathName": "pages/home_location_write/home_location_write",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "天气",
+					"pathName": "pages/recevie_weather/recevie_weather",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "筛选排序",
+					"pathName": "pages/screen/screen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页搜索结果",
+					"pathName": "pages/recevie_search_result/recevie_search_result",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order_details/order_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价成功",
+					"pathName": "pages/evaluate_success/evaluate_success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务队列表",
+					"pathName": "pages/service_team_list/service_team_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增服务队",
+					"pathName": "pages/team_add/team_add",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "子帮手主页",
+					"pathName": "pages/child_home/child_home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "start",
+					"pathName": "pages/start/start",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/evaluate_list/evaluate_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "配方列表",
+					"pathName": "pages/medicine_list/medicine_list",
+					"scene": null
+				}
+			]
+		}
+	}
+}

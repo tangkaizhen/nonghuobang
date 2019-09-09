@@ -1,0 +1,15 @@
+<!--pages/medicine_list/medicine_list.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>绑定配方</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='medicine_list_box'>
+  <view class='medicine_list' wx:for='{{formulations}}' wx:key='{{item.id}}' data-id='{{item.id}}' bindtap='selectmedicine'>
+    <text class='medicine_name'>{{item.name}}</text>
+    <image src='{{selectedId==item.id?"/images/icon_radio_s.png":"/images/icon_radio_n.png"}}' class='medicine_logo'></image>
+  </view>
+</view>
+<button class='medicine_add' bindtap='to_add_medicine'>新增药方</button>
+
+<button class='medicine_btn' bindtap='medicine_btn'>确认</button>

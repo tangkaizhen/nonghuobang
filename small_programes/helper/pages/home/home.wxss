@@ -1,0 +1,62 @@
+/* pages/home/home.wxss */
+page{
+  background: #fafafa
+}
+.banner_wechat{
+  width: 100%;
+}
+.empty_custom {
+  border-bottom: none
+}
+.banner_wechat_box{
+  width: 100%;
+  height: 307rpx;
+  overflow:hidden;
+}
+.helper_list_box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}
+.navigator_helper_box{
+  margin-bottom: 26rpx;
+	position: relative
+}
+.getUserInfo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0
+}
+.helper_box{
+  width: 329rpx;
+  height: 158rpx;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+	justify-content: space-around;
+	align-items: center;
+  box-shadow: 0 20rpx 20rpx #eee;
+  border-radius:10rpx; 
+}
+.helper_box_img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 10rpx;
+}
+.helper_box_txt{
+  font-size: 32rpx;
+  color: #333;
+  bottom:52rpx;
+  font-weight: bold
+}
+.helper_box.forward_to{
+  font-weight: bold;
+  font-size: 32rpx;
+  color: #333;
+  padding-top:51rpx;
+  text-align:center;
+}

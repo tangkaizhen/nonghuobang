@@ -1,0 +1,29 @@
+<!--pages/my_banks/my_banks.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>我的银行卡</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='my_banks_box'>
+  <view wx:for='{{banks}}'  bindtap='my_banks_operate' data-id='{{item.id}}' data-index='{{index}}' style='background:{{item.bank_background.background}}' class='my_banks_list' wx:key="*this">
+    <view class='my_banks_list_left'>
+      <image class='my_banks_logo' mode='widthFix' src='{{item.bank_logo}}'></image>
+      <view class='my_banks_inner_box'>
+        <view class='my_banks_name'>{{item.bank}}</view>
+        <view class='my_banks_remark' wx:if='{{item.type==1}}'>储蓄卡</view>
+        <view class='my_banks_remark' wx:elif='{{item.type==2}}'>信用卡</view>
+
+        <view class='my_banks_num'><text>****  ****  ****  </text><text class='my_banks_num_value'>{{item.cardNo}}</text></view>
+      </view>
+    </view>
+    <image class='my_banks_operate' mode='widthFix' src='/images/icon_more_white.png'></image>
+  </view>
+  
+  <button class='add_bank' bindtap='add_bank'>新增银行卡</button>
+</view>
+<view class='page_shade' bindtap='my_banks_cancel' hidden='{{ifHidden_page_shade}}'></view>
+<view wx:if='{{ifShow_my_banks_operate_box}}' class='my_banks_operate_box'>
+  <view class='my_banks_del' bindtap='my_banks_del'>删除</view>
+  <view class='my_banks_cancel' bindtap='my_banks_cancel'>取消</view>
+</view>

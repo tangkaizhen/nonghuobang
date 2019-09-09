@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <!-- <image bindtap='back_home' class='back_page' src='/images/btn_back_wechat.png'></image>  -->
+  <text>配药</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='medicine_outter_box' wx:if='{{helper_id!=undefined&&helper_id!=""}}'>
+<!-- 配药列表 -->
+<view class='medicine_box' data-formulationId='{{item.id}}' bindtap='medicine_details' wx:for='{{medicines}}' wx:key='id'>
+    {{item.name}}  
+    <button catchtap='medicine_delete' data-index='{{index}}' data-id='{{item.id}}' class='medicine_delete'>删除</button>
+</view>
+<button class='medicine_add' bindtap='to_add_medicine'>新增药方</button>
+</view>
+<view wx:if='{{ifShowAuth}}'>
+<view wx:if="{{authorization}}" class='start_box'>
+  <image class='start_logo' src='/images/icon_medic_wechat.png'></image>
+  <button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">进入小程序</button>
+</view>
+
+<view wx:else class='refuse_authorization'>
+  <view class='refuse_txt1'>温馨提示!</view>
+  <view class='refuse_txt2'>为保证您正常使用，请先进行</view>
+  <button class='start_btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">开始授权</button>
+</view>
+</view>
+<!-- 弹出框 -->
+<view class='dialoge_box' hidden='{{ishidden_dialoge}}'>
+  <view class='dialoge_header'>删除药方</view>
+  <view class='dialoge_txt'>确认删除药方吗？</view>
+  <view class='dialoge_btn_box'>
+    <button class='dialoge_btn_confirm' bindtap='dialoge_btn_confirm'>确认</button>
+    <button class='dialoge_btn_cancel' bindtap='dialoge_btn_cancel'>我再想想</button>
+  </view>
+</view>
+
+<view class='page_shade' hidden='{{ishidden_shage}}'></view>

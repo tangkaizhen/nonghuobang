@@ -1,0 +1,31 @@
+/* pages/start/start.wxss */
+.start_box{
+  text-align: center
+}
+.start_logo{
+  width: 144rpx;
+  height: 144rpx;
+  margin:49% 0 100rpx;
+}
+.start_btn{
+  background: #dd7e29;
+  color: #fff;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 10rpx;
+}
+
+.refuse_authorization{
+  text-align: center
+}
+.refuse_txt1{
+  font-size: 40rpx;
+  margin-top:50%;
+}
+.refuse_txt2{
+margin:20rpx 0 70rpx;
+
+}

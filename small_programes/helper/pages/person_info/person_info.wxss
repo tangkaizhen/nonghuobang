@@ -1,0 +1,90 @@
+/* pages/person_info/person_info.wxss */
+page{
+  background: #f2f2f2
+}
+.person_info_list{
+  margin-bottom: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff
+}
+.person_info_name{
+  font-size: 32rpx;
+  color: #333;
+}
+.person_img_box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+.person_img{
+  margin-right: 30rpx;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 44rpx
+}
+.person_img_select{
+  width: 12rpx;
+  height: 20rpx;
+}
+.person_info_value{
+  font-size: 32rpx;
+  color: #333;
+  text-align: right
+}
+.person_name_box,.person_tel_box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+.person_name_select,.person_tel_select{
+  margin-left: 15rpx;
+  width: 12rpx;
+  height: 20rpx;
+}
+.person_info_tel{
+  font-size: 32rpx;
+  color: #999
+}
+.person_info_position_box{
+  display: flex;
+  font-size: 28rpx;
+  justify-content: flex-end;
+  width: 80%;
+  align-items: center
+}
+.person_info_position{
+  width: 90%;
+  padding-right: 15rpx;
+  text-align: right;
+
+}
+.person_info_position_select{
+  width: 12rpx;
+  height: 20rpx;
+}
+.authentication_status{
+  font-size: 32rpx;
+  color: #0964f0
+}
+.audit_status{
+  font-size: 32rpx;
+  color: #0964f0
+}
+
+.audit_status_no_box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center
+}
+.audit_status_no{
+  color: #ccc;
+  font-size: 32rpx;
+  margin-right: 15rpx
+}
+.audit_status_select{
+  width: 12rpx;
+  height: 20rpx;
+}

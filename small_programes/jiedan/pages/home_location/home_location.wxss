@@ -1,0 +1,141 @@
+/* pages/home_location/home_location.wxss */
+page{
+  background: rgb(0,0,0)
+}
+.lcoation_box{
+  padding: 40rpx;
+  color: #fff;
+}
+.close_btn{
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 50rpx
+}
+.lcoation_header_box{
+  display: flex;
+  justify-content: space-between;
+  margin: 70rpx 0
+}
+.lcoation_header{
+  font-size: 50rpx;
+}
+.auto_location{
+  display: flex;
+  align-items: center
+}
+.icon_gps_icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx
+}
+.auto_location_txt{
+  font-size: 24rpx;
+}
+.lcoation_small_header{
+  font-size: 26rpx;
+  margin: 15rpx 0
+}
+.city_input{
+  font-size: 38rpx;
+  text-align: center;
+  margin-top: 40rpx;
+  padding-bottom:30rpx;
+  border-bottom: 1rpx solid rgba(255,255,255,.4);
+  height:70rpx;
+  line-height:70rpx;
+}
+
+.history_hot_more_box{
+  color: #fff;
+  padding-top:540rpx;
+  height: 1000rpx;
+} 
+.history_city_box{
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  border-bottom:1rpx solid rgba(255,255,255,.4);
+  padding-bottom:20rpx;
+  margin-bottom:20rpx;
+}
+.history_city{
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  border-radius:10rpx;
+  color: #fff;
+  opacity: .75;
+  padding: 5rpx 10rpx;
+  border: 4rpx solid rgba(255,255,255,.75) 
+}
+.hot_city_box{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1rpx solid rgba(255,255,255,.4);
+  padding: 15rpx 0; 
+}
+.hot_city{
+  margin-right: 15rpx;
+  margin-bottom: 15rpx;
+  font-size: 24rpx;
+  border-radius:10rpx;
+  color: #fff;
+  opacity: .75;
+  padding: 5rpx 10rpx;
+  border: 4rpx solid rgba(255,255,255,.75) 
+}
+.more_city_box{
+
+}
+.city-ding{
+  position: fixed;
+  right: 20rpx;
+  color: #fff;
+  text-align: center;
+  top:0;
+  z-index:10;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.city-item{
+  color: #fff;
+  margin-bottom: 4rpx;
+  font-size: 18rpx
+}
+.lcoation_current{
+  color: #fff;
+  opacity: .75;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid rgba(255,255,255,.4);
+  padding-bottom: 20rpx;
+  padding-top: 15rpx;
+}
+
+.more_city_box{
+
+}
+.Letter-header{
+  font-size:26rpx;
+  font-weight:bold;
+  margin-top: 30rpx
+}
+.Letter-city-box{
+
+}
+.Letter-city{
+  font-size:24rpx;
+  opacity:.75;
+  padding:20rpx 0 20rpx;
+  border-bottom:1rpx solid rgba(255,255,255,.4);
+}
+.lcoation_top_box{
+  position: fixed;
+  top: 0;
+  width: 90%;
+  background: #000;
+  z-index: 2;
+  padding-bottom: 30rpx
+}

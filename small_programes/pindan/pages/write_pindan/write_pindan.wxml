@@ -1,0 +1,89 @@
+<!--pages/write_pindan/write_pindan.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>输入信息</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='outter_box'>
+  <view class='info_box'>
+    <text class='info_fore'>联系人</text>
+    <input placeholder='请输入联系人' bindinput='bind_info_name' value='{{info_name}}' placeholder-style="color:#999" class='info_value'></input>
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>联系电话</text>
+    <input placeholder='请输入联系电话' bindinput='bind_info_tel' value='{{info_tel}}' placeholder-style="color:#999" type='number' maxlength='11' class='info_value'></input>
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>作业地址</text>
+      <picker mode="region" class='info_picker_box' bindchange="bindRegionChange">
+        <view class="info_picker">
+          当前选择
+        </view>
+      </picker>
+
+    <input placeholder='选择省，市，区' disabled='true' value='{{region}}' placeholder-style="color:#999" class='info_value'></input>
+
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>详细地址</text>
+    <input placeholder='请输入详细地址' bindinput='bind_info_details' value='{{info_details}}' placeholder-style="color:#999" class='info_value'></input>
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>作物种类</text>
+    <view class='info_inner_box'>
+      <picker class='info_picker_box' bindchange="bindPickerChange" value="{{crop_index}}" range="{{crops}}">
+        <view class="info_picker">
+          当前选择
+        </view>
+      </picker>
+
+      <input placeholder='请选择作物种类' value='{{crop_value}}' disabled='true' placeholder-style="color:#999" class='info_value'></input>
+      <image class='icon_forward' src='/images/icon_forward_grey_s.png'></image>
+    </view>
+  </view>
+  <view class='info_operate_box'>
+    <text class='info_fore'>作业类型</text>
+
+    <view class='filtrate_box'>
+      <view class='filtrate_right_box'>
+        <view class='filtrate_inner_box' data-index='2' bindtap='select_filtrate_type'>
+          <image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type2}}.png'></image>
+          <view class='filtrate_type_txt'>耕种</view>
+        </view>
+        <view class='filtrate_inner_box' data-index='3' bindtap='select_filtrate_type'>
+          <image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type3}}.png'></image>
+          <view class='filtrate_type_txt'>打药</view>
+        </view>
+        <view class='filtrate_inner_box' data-index='4' bindtap='select_filtrate_type'>
+          <image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type4}}.png'></image>
+          <view class='filtrate_type_txt'>收割</view>
+        </view>
+        <view class='filtrate_inner_box' data-index='5' bindtap='select_filtrate_type'>
+          <image class='filtrate_type_img' src='/images/{{filtrate_type.filtrate_type5}}.png'></image>
+          <view class='filtrate_type_txt'>人工</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>服务亩数</text>
+    <view class='info_inner_box'>
+      <input placeholder='最大服务亩数' type='digit' bindinput='bind_info_area' value='{{info_area}}' placeholder-style="color:#999" class='info_value'></input>
+      <text class='info_unit'>亩</text>
+    </view>
+  </view>
+  <view class='info_box'>
+    <text class='info_fore'>服务时间</text>
+    <view class='info_inner_box'>
+      <picker class='info_picker_box' mode="date" value="{{info_date}}" start="2015-09-01" end="2057-09-01" bindchange="bindDateChange">
+          <text class='info_picker'>111</text>
+      </picker>
+        <input placeholder='' disabled='true' value="{{info_date}}" placeholder-class="info_data" class='info_value'></input>
+        <image class='icon_forward' src='/images/icon_forward_grey_s.png'></image>
+    </view>
+  </view>
+</view>
+
+<button class='start_pindan' bindtap='start_pindan'>发起拼单</button>

@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/start/start",
+		"pages/register/register",
+    "pages/my_pindan/my_pindan",
+    "pages/search/search",
+    "pages/write_pindan/write_pindan",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "拼单工具",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息用于小程序地图展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

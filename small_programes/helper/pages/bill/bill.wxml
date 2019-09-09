@@ -1,0 +1,24 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>账单</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='bill_box'>
+  <view class='bill_inner_box' wx:for='{{trades}}' wx:key="*this" data-id='{{item.id}}' bindtap='to_bill_details'>
+    <view class='bill_content_box'>
+      <view class='bill_name' wx:if="{{item.order==undefined||item.order=='undefined'||item.order==''}}">{{item.type_val}}</view>
+      <view class='bill_name' wx:else>
+        <block wx:if="{{item.order.jobType=='人工'}}">{{item.type_val}}-人工/{{item.order.cropsType}}/{{item.order.jobDays}}天</block>
+        <block wx:else>{{item.type_val}}-{{item.order.jobType}}/{{item.order.cropsType}}/{{item.order.area}}亩</block>
+      </view>
+      <view class='bill_date'>{{item.createTime}}</view>
+    </view>
+    <view class='bill_price_box'>
+      <text class='bill_price' wx:if='{{item.type == 1 || item.type == 6  || item.type == 10}}'>+{{item.money}}</text>
+      <text class='bill_price' wx:elif='{{item.type == 2}}'>-{{item.money}}</text>
+      <text class='bill_price' wx:else>{{item.money}}</text>
+      <image bindtap='bill_right' class='bill_right' src='/images/icon_forward_grey.png'></image>
+    </view>
+  </view>
+</view>

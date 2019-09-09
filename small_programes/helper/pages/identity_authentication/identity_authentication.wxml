@@ -1,0 +1,12 @@
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>身份认证</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+<view class='identity_box'>
+  <view class='identity_txt'>请拍摄/上传您的身份证信息</view>
+
+  <image class='identity_positive'  bindtap='to_person_info' data-img='z' src='{{z_img}}'></image>
+  <image class='identity_reverse'  bindtap='to_person_info' data-img='f' src='{{f_img}}'></image>
+  <button class='identity_btn' bindtap='submit'>提交审核</button>
+</view>

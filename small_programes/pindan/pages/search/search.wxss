@@ -1,0 +1,43 @@
+/* pages/search/search.wxss */
+page,.empty_custom,.custom{
+  background: #000
+}
+.empty_custom{
+  border-bottom: none
+}
+.back_page{
+  width:100rpx;
+  height:100rpx;
+bottom:11rpx;
+left:10rpx;
+
+}
+.search_outter_box{
+  padding: 50rpx 50rpx;
+  color: #fff;
+}
+.search_inner_box{
+
+}
+.search_header{
+  font-size: 55rpx
+}
+.search_small_header{
+  font-size: 24rpx;
+  margin: 50rpx 0 40rpx;
+}
+.keyword{
+  text-align: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid rgba(255,255,255,.5);
+  font-size: 42rpx;
+  color: #fff;
+  height:111rpx;
+
+}
+.search_history{
+  font-size: 24rpx;
+  border-bottom: 1rpx solid rgba(255,255,255,.5);
+  color: rgba(255,255,255,.5);
+  padding: 30rpx 0
+}

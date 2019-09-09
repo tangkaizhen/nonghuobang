@@ -1,0 +1,49 @@
+<!--pages/home_location_write/home_location_write.wxml-->
+<!--pages/home_location/home_location.wxml-->
+
+<view class='lcoation_box'>
+  <view class='lcoation_top_box'>
+    <image class='close_btn' bindtap='close_btn' src='/images/icon_backspace.png'></image>
+    <view class='lcoation_header_box'>
+      <view class='lcoation_header'>定位</view>
+      <view class='auto_location'>
+        <image class='icon_gps_icon' src='/images/icon_gps.png'></image>
+        <text class='auto_location_txt' bindtap='auto_location'>{{auto_location_txt}}</text>
+      </view>
+    </view>
+
+    <view class='lcoation_small_header'>您所在的城市</view>
+    
+    <view class='city_input_box'>
+      <input focus disabled='{{input_disabled}}' type='text' class='city_input' bindinput='city_input' value='{{city_input_value}}' placeholder='输入城市名查询'></input>
+      <image class='city_input_del' bindtap='city_input_del' hidden='{{city_input_del}}' src='/images/icon_x_s_white.png'></image>
+      <image class='city_input_backspace' bindtap='city_input_backspace' hidden='{{city_input_backspace}}' src='/images/icon_backspace.png'></image>
+    </view>
+    <view class='lcoation_small_header'>{{search_header}}</view>
+    
+    <view class='search_city_box'>
+      <view class='search_item' wx:for='{{cityData}}'  hidden='{{search_city}}' data-name='{{item.name}}' bindtap='city_click' wx:key="index">{{item.name}}</view>
+
+      <view class='search_item' wx:for='{{districtData}}' data-id='{{item.id}}' data-name='{{item.name}}' hidden='{{search_district}}' bindtap='district_click' wx:key="index">
+        <text class='search_item_val'>{{item.name}}</text>
+        <image class='icon_nike' wx:if='{{item.name==select_district_name}}' src='/images/icon_nike.png'></image>
+      </view>
+
+      <view class='search_item' wx:for='{{streetData}}' hidden='{{search_street}}' data-name='{{item.name}}' bindtap='street_click' wx:key="index">
+        <text class='search_item_val'>{{item.name}}</text>
+        <image class='icon_nike' wx:if='{{item.name==select_street_name}}' src='/images/icon_nike.png'></image>
+      </view>
+
+      <input type='text' class='details_input'  hidden='{{search_details}}' bindinput='details_input' value='{{details_input_value}}' placeholder='请输入详细地址'></input>
+    </view>
+  </view>
+  
+    <button class='complete_btn {{complete_btn?"index":""}}' bindtap='complete_btn' hidden='{{hidden_complete_btn}}'>完成</button>
+</view>
+
+
+
+
+
+
+

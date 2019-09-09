@@ -1,0 +1,64 @@
+/* pages/bill_details/bill_details.wxss */
+.bill_box{
+  padding: 0 30rpx;
+}
+.bill_top{
+  padding: 46rpx 0 138rpx;
+  text-align: center
+}
+.bill_success{
+  width: 100rpx;
+  height: 100rpx;
+}
+.bill_success_txt{
+  font-size: 42rpx;
+  color: #333;
+  margin: 48rpx 0 24rpx;
+}
+.bill_success_date{
+  font-size: 28rpx;
+  color: #666;
+} 
+.bill_account_box{
+  border-top: 1rpx solid #eee;
+  padding: 34rpx 0;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.bill_account_name{
+  font-size: 32rpx;
+  color: #333
+}
+.bill_account_num{
+  font-size: 28rpx;
+  color: #666
+}
+.bill_order{
+  border-bottom: 1rpx solid #eee;
+  padding: 34rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.bill_order_left{
+
+}
+.bill_order_type{
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 24rpx;
+}
+.bill_order_position{
+  font-size: 28rpx;
+  color: #666;
+}
+.bill_order_date{
+  font-size: 28rpx;
+  color: #666;
+}
+.bill_order_right{
+  width: 12rpx;
+  height: 20rpx
+}

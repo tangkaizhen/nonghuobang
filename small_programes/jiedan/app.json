@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/recevie_order/recevie_order",
+    "pages/home/home",
+    "pages/start/start",
+    "pages/login/login",
+    "pages/bind_order/bind_order",
+    "pages/add_airplane/add_airplane",
+		"pages/register/register",
+    "pages/home_order_search/home_order_search",
+    "pages/search/search",
+    "pages/add_medicine_material/add_medicine_material",
+    "pages/add_medicine/add_medicine",
+    "pages/screen/screen",
+    "pages/medicine_list/medicine_list",
+    "pages/medicine_details/medicine_details",
+    "pages/recevie_weather/recevie_weather",
+    "pages/child_home/child_home",
+    "pages/recevie_search_result/recevie_search_result",
+    "pages/test/test",
+    "pages/home_location/home_location",
+    "pages/home_location_write/home_location_write",
+    "pages/evaluate/evaluate",
+    "pages/evaluate_list/evaluate_list",
+    "pages/evaluate_success/evaluate_success",
+    "pages/recevie_order_details/recevie_order_details",
+    "pages/order_details/order_details",
+    "pages/famer_details/famer_details",
+    "pages/service_team_list/service_team_list",
+    "pages/team_add/team_add",
+    "pages/team_search/team_search",
+    "pages/userNotice/userNotice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "接单",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#ccc",
+    "selectedColor": "#6cd986",
+    "list": [
+      {
+        "pagePath": "pages/recevie_order/recevie_order",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": ""
+      }
+    ]
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息用于小程序地图展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

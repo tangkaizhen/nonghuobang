@@ -1,0 +1,70 @@
+<!--pages/add_medicine/add_medicine.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>配药工具</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+
+<view class='add_medicine_name_box'>
+   <text class='add_medicine_name'>药方名称</text>
+   <input placeholder='请输入名称' bindinput='bind_medic_name' value='{{medicine_name}}' class='add_medicine_value' placeholder-style=''></input>
+</view>
+<view class='add_medicine_header'>药方详情</view>
+<!-- 药物列表 -->
+<block wx:if='{{medicine_material_arr.length>0}}'>
+  <view class='medicine_arr_box' wx:for='{{medicine_material_arr}}' bindtap='edite_medicine' data-item='{{item}}'  data-index='{{index}}' wx:key="*this">
+    <text class='medicine_arr_name'>{{item.name}}</text>
+    <view class='medicine_arr_box_right'>
+      <text class='medicine_arr_dosage'>{{item.dosage}}</text>
+      <text class='medicine_arr_unit'>{{item.unit}}</text>
+      <button class='medicine_arr_delete' data-index='{{index}}' catchtap='medicine_arr_delete'>删除</button>
+    </view>
+  </view>
+</block>
+
+<image class='no_medic' style='' src='../../images/icon_medic_peifang.png' wx:else></image>
+<button class='medicine_add' bindtap='add_medicine_materials'>添加药物</button>
+<block wx:if='{{isshowPlane}}'>
+    <view class='add_airplane_height_box'>
+        <text class='add_airplane_height_name'>飞机高度</text>
+        <view class='add_airplane_height_box_right'>
+            <input type='digit' placeholder='请输入飞机高度' bindinput='bind_airplane_height' value='{{airplane_height}}' class='add_airplane_height' placeholder-style=''></input>
+            <text class='add_airplane_height_unit'>m</text>
+        </view>
+      </view>
+
+      <view class='add_airplane_speed_box'>
+        <text class='add_airplane_speed_name'>飞机速度</text>
+        <view class='add_airplane_speed_box_right'>
+            <input type='digit' placeholder='请输入飞机速度' bindinput='bind_airplane_speed' value='{{airplane_speed}}' class='add_airplane_speed' placeholder-style=''></input>
+            <text class='add_airplane_speed_unit'>m/s</text>
+        </view>
+      </view>
+
+      <view class='add_airplane_range_box'>
+        <text class='add_airplane_range_name'>飞机喷幅</text>
+        <view class='add_airplane_range_box_right'>
+            <input type='digit' placeholder='请输入飞机喷幅' bindinput='bind_airplane_range' value='{{airplane_range}}' class='add_airplane_range' placeholder-style=''></input>
+            <text class='add_airplane_range_unit'>m</text>
+        </view>
+      </view>
+
+      <view class='add_airplane_quantity_box'>
+        <text class='add_airplane_quantity_name'>每亩用量</text>
+        <view class='add_airplane_quantity_box_right'>
+        <input type='digit' placeholder='请输入每亩用量' bindinput='bind_airplane_quantity' value='{{airplane_quantity}}' class='add_airplane_quantity' placeholder-style=''></input>
+            <text class='add_airplane_quantity_unit'>L/㎡</text>
+        </view>
+    </view>
+</block>
+
+<view class='medicine_btns_box'>
+  <button class='add_medicine_next' bindtap='medicine_complete'>完成</button>
+  <button class='change_medicine' bindtap='change_medicine'>更换配方</button>
+</view>
+
+<!-- 这是提示框 -->
+<view class='reminder_box' hidden='{{isHiddenReminder}}'>
+  {{reminder_info}}
+</view>

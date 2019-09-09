@@ -1,0 +1,51 @@
+<!--pages/add_airplane/add_airplane.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='{{back_img}}'></image>
+  <text>配药工具</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='add_airplane_height_box'>
+   <text class='add_airplane_height_name'>飞机高度</text>
+   <view class='add_airplane_height_box_right'>
+      <input type='digit' placeholder='请输入飞机高度' bindinput='bind_airplane_height' value='{{airplane_height}}' class='add_airplane_height' placeholder-style=''></input>
+      <text class='add_airplane_height_unit'>m</text>
+   </view>
+</view>
+
+<view class='add_airplane_speed_box'>
+   <text class='add_airplane_speed_name'>飞机速度</text>
+   <view class='add_airplane_speed_box_right'>
+      <input type='digit' placeholder='请输入飞机速度' bindinput='bind_airplane_speed' value='{{airplane_speed}}' class='add_airplane_speed' placeholder-style=''></input>
+      <text class='add_airplane_speed_unit'>m/s</text>
+   </view>
+</view>
+
+<view class='add_airplane_range_box'>
+   <text class='add_airplane_range_name'>飞机喷幅</text>
+   <view class='add_airplane_range_box_right'>
+      <input type='digit' placeholder='请输入飞机喷幅' bindinput='bind_airplane_range' value='{{airplane_range}}' class='add_airplane_range' placeholder-style=''></input>
+      <text class='add_airplane_range_unit'>m</text>
+   </view>
+</view>
+
+<view class='add_airplane_quantity_box'>
+   <text class='add_airplane_quantity_name'>每亩用量</text>
+   <view class='add_airplane_quantity_box_right'>
+      <input type='digit' placeholder='请输入每亩用量' bindinput='bind_airplane_quantity' value='{{airplane_quantity}}' class='add_airplane_quantity' placeholder-style=''></input>
+      <text class='add_airplane_quantity_unit'>L/㎡</text>
+   </view>
+</view>
+
+<view class='add_airplane_order_box'>
+   <text class='add_airplane_order_name'>绑定订单</text>
+   <view class='add_airplane_order_box_right' bindtap='to_bind_order'>
+      <input type='text' placeholder='请选择' disabled value='{{airplane_order}}' class='add_airplane_order'></input>
+      <image class='icon_more' src='/images/icon_more_peifang.png'></image>
+   </view>
+</view>
+
+<view class='reminder_box' hidden='{{isHiddenReminder}}'>
+  {{reminder_info}}
+</view>
+<button class='add_medicine_complete' bindtap='add_medicine_complete'>完成</button>

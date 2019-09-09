@@ -1,0 +1,133 @@
+/* pages/recevie_weather/recevie_weather.wxss */
+page{
+}
+.back_page{
+  position:fixed;
+  left:30rpx;
+  top:41rpx;
+  width:130rpx;
+  height:120rpx;
+  z-index:7;
+}
+.weather_box{
+  text-align: center;
+  padding-top: 145rpx;
+  color: #fff;
+  background-size:100% 100% 
+}
+
+.weather_tem{
+  font-size: 160rpx
+}
+.weather_tem_unit{
+  font-size: 100rpx
+}
+.tem_high_low{
+  margin: 30rpx 0;
+  font-size: 40rpx;
+}
+.weather_cloud{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #666;
+  opacity: .75;
+  height: 70rpx;
+  border-radius:35rpx; 
+  width: 200rpx;
+  margin: 0 auto
+}
+
+.weather_cloud_img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx
+}
+.weather_cloud_txt{
+  font-size: 32rpx;
+
+}
+.weather_wind{
+  margin: 20rpx 0 54rpx;
+  font-size: 32rpx;
+}
+.weather_date_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  border-bottom: 2rpx solid #fff;
+  padding-bottom: 20rpx
+}
+.weather_date_inner_box{
+
+}
+.weather_date_weekend{
+  margin-right: 20rpx
+}
+.weather_date_today{
+
+}
+
+.weather_date_tem{
+
+}
+.weather_date_tem_high{
+  margin-right: 30rpx
+}
+.weather_date_tem_low{
+
+}
+.weather_time{
+  border-bottom: 2rpx solid #fff;
+  display: flex;
+  overflow-x: scroll;
+}
+.weather_time_scroll{
+  display: flex;
+}
+.weather_time_item{
+  margin-left: 50rpx;
+  padding: 16rpx 0 20rpx;
+}
+.weather_time_value{
+  font-size: 26rpx;
+}
+.weather_cloud_value{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 30rpx 0
+}
+.weather_tem_value{
+  font-size: 30rpx
+}
+
+.weather_weekend{
+  border-bottom: 2rpx solid #fff;
+  font-size: 32rpx;
+  padding:24rpx 36rpx;
+}
+.weather_weekend_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx
+}
+.weather_weekend_value{
+
+}
+.weather_weekend_cloud{
+  width: 40rpx;
+  height: 40rpx;
+}
+.weather_weekend_tem{
+  display: flex;
+  justify-content: space-between;
+  width:89rpx;
+}
+.weather_weekend_tem_high{
+  margin-right: 30rpx
+}
+.weather_weekend_tem_low{
+
+}

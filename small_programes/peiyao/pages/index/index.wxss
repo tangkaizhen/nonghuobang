@@ -1,0 +1,107 @@
+/**index.wxss**/
+.medicine_box{
+  font-size:28rpx;
+  color:#333;
+  margin:0 26px;
+  padding:0 6px;
+  height:120rpx;
+  line-height:120rpx;
+  border-bottom:1rpx solid #ddd;
+}
+.medicine_delete{
+  color:#ff4e00;
+  border:1rpx solid #ff4e00;
+  background:0 20rpx;
+  font-size:20rpx;
+  border-radius:14rpx;
+  width:83rpx;
+  float:right;
+  margin-top:36rpx;
+  padding:0;
+
+}
+.medicine_outter_box{
+  margin-bottom: 250rpx
+}
+.medicine_add{
+  color:#6cd986;
+  font-size:28rpx;
+  border:#6cd986 dashed 2rpx;
+  width:584rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  bottom: 50rpx;
+}
+page {
+  padding-bottom:200rpx;
+}
+
+.dialoge_box{
+  width: 90%;
+  height: 305rpx;
+  background: #fff;
+  border-radius:20rpx;
+  position: fixed; 
+  top: 30%;
+  left: 5%;
+  z-index: 4;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+}
+.dialoge_header{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 40rpx 0 52rpx; 
+}
+.dialoge_txt{
+  font-size: 32rpx;
+
+}
+.dialoge_btn_box{
+  display: flex;
+  height: 98rpx;
+  border-top:1rpx solid #eee; 
+  margin-top:31rpx;
+
+}
+.dialoge_btn_confirm{
+  color: #0095ff;
+	font-size: 40rpx;
+}
+.dialoge_btn_cancel{
+	font-size: 40rpx;
+
+}
+
+.start_box{
+  text-align: center
+}
+.start_logo{
+  width: 144rpx;
+  height: 144rpx;
+  margin:30% 0 100rpx;
+}
+.start_btn{
+  background: #12b398;
+  color: #fff;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 10rpx;
+}
+
+.refuse_authorization{
+  text-align: center
+}
+.refuse_txt1{
+  font-size: 40rpx;
+  margin-top:30%;
+}
+.refuse_txt2{
+margin:20rpx 0 70rpx;
+
+}

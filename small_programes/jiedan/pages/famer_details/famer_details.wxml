@@ -1,0 +1,165 @@
+<!--pages/famer_details/famer_details.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>农户详情</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='farmer_outter_box' hidden='{{ifHidden_outter_box}}'></view>
+<view class='farmer_banner_box'>
+
+  <text class='farmer_authentication' wx:if='{{farmer.flag==3}}'>认证</text>
+  <text class='farmer_authentication index' wx:else>未认证</text>
+
+  <image wx:if='{{farmer.headImg}}' class='farmer_banner' src='{{res_ctx}}/{{farmer.headImg}}'></image>
+  <image wx:else class='farmer_banner' src='{{farmer_banner}}'></image>
+</view>
+<view class='farmer_info_box'>
+  <view class='farmer_info_one'>
+    <text class='farmer_info_name'>{{farmer.name}}</text>
+    <text class='farmer_info_distance'>{{farmer.distance}}km</text>
+  </view>
+  <view class='farmer_info_two'>
+    <view class='farmer_grade_box' wx:if='{{farmer.judge==5}}'>
+      <view class='farmer_grade_innerbox' style='background:#ff6f26'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#ff6f26'>非常棒</text>
+    </view>
+
+    <view class='farmer_grade_box' wx:elif='{{farmer.judge>=4.5}}'>
+      <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#ffbf00'>很好</text>
+    </view>
+
+    <view class='farmer_grade_box' wx:elif='{{farmer.judge>=4}}'>
+      <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#ffbf00'>好</text>
+    </view>
+
+    <view class='farmer_grade_box' wx:elif='{{farmer.judge>=3}}'>
+      <view class='farmer_grade_innerbox' style='background:#666'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#666'>一般</text>
+    </view>
+
+    <view class='farmer_grade_box' wx:elif='{{farmer.judge>=2}}'>
+      <view class='farmer_grade_innerbox' style='background:#333'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#333'>差</text>
+    </view>
+    <view class='farmer_grade_box' wx:else>
+      <view class='farmer_grade_innerbox' style='background:#000'>
+        <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+        <text class='farmer_grade_value'>{{farmer.judge}}</text>
+      </view>
+      <text class='farmer_grade_word' style='color:#000'>非常差</text>
+    </view> 
+    <view class='farmer_tel_box'>
+      <image class='farmer_tel_logo' src='/images/icon_phone_n.png'></image>
+      <text class='farmer_tel'>{{farmer.phone}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='farmer_map_box'>
+  <map id="map" longitude="{{farmer.longitude}}" latitude="{{farmer.latitude}}" markers='{{markers}}'></map>
+  <cover-view class='farmer_map'>
+    <cover-view class='farmer_map_position_box'>
+      <cover-image class='farmer_map_position_logo' src='/images/icon_location_s.png'></cover-image>
+      <cover-view class='farmer_map_position' wx:if='{{farmer.address==undefined}}'>{{farmer.province}}{{farmer.city}}{{farmer.district}}{{farmer.street}}</cover-view>
+      <cover-view class='farmer_map_position' wx:else='{{farmer.address==undefined}}'>{{farmer.province}}{{farmer.city}}{{farmer.district}}{{farmer.street}}{{farmer.address}}</cover-view>
+    </cover-view>
+    <cover-image class='farmer_map_tel_logo' bindtap='makePhoneCall' src='/images/icon_phonecall.png'></cover-image>
+  </cover-view>
+</view>
+
+<view class='evaluate_box'>
+  <view class='evaluate_top_box'>
+    <text class='evaluate_header'>最新评价</text>
+    <view class='evaluate_all' bindtap='to_search_all'>
+      <text>全部评价</text>
+      <image class='evaluate_all_right' src='/images/icon_forward_grey_s.png'></image>
+    </view>
+  </view>
+  <view class='evaluate_content_box' wx:for='{{remarks}}' wx:key="*this">
+    <view class='evaluate_content_top'>
+      <view class='evaluate_person_box'>
+        <image wx:if='{{item.reviewer.headImg}}' src='{{res_ctx}}/{{item.reviewer.headImg}}' class='evaluate_person_img'></image>
+        <image wx:else src='/images/sculpture_default.png' class='evaluate_person_img'></image>
+        <text class='evaluate_person_name'>{{item.reviewer.name}}</text>
+      </view>
+      
+      
+      <view class='farmer_grade_box' wx:if='{{item.star==5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ff6f26'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ff6f26'>非常棒</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=4.5}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>很好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=4}}'>
+            <view class='farmer_grade_innerbox' style='background:#ffbf00'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#ffbf00'>好</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=3}}'>
+            <view class='farmer_grade_innerbox' style='background:#666'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#666'>一般</text>
+          </view>
+
+          <view class='farmer_grade_box' wx:elif='{{item.star>=2}}'>
+            <view class='farmer_grade_innerbox' style='background:#333'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#333'>差</text>
+          </view>
+          <view class='farmer_grade_box' wx:else>
+            <view class='farmer_grade_innerbox' style='background:#000'>
+              <image class='farmer_grade_star' src='/images/icon_star_white.png'></image>
+              <text class='farmer_grade_value'>{{item.star}}</text>
+            </view>
+            <text class='farmer_grade_word' style='color:#000'>非常差</text>
+          </view>
+
+    </view>
+    <view class='evaluate_content_date'>{{item.createTime}}</view>
+    <view class='evaluate_content'>{{item.content}}</view>
+
+    <view class='evaluate_content_img_box'>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic1}}' src='{{res_ctx}}/{{item.remarkPic1}}'></image>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic2}}' src='{{res_ctx}}/{{item.remarkPic2}}'></image>
+      <image class='evaluate_content_img' wx:if='{{item.remarkPic3}}' src='{{res_ctx}}/{{item.remarkPic3}}'></image>
+    </view>
+
+  </view>
+
+  <view class='to_search_all' bindtap='to_search_all'>查看<text>全部评价</text></view>
+</view>

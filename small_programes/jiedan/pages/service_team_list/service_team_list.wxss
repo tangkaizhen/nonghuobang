@@ -1,0 +1,87 @@
+/* pages/service_team_list/service_team_list.wxss */
+.search_box{
+   display: flex;
+   border-bottom: 1rpx solid #eee;
+   padding: 40rpx 0;
+   justify-content: space-around;
+   width:100%;
+    position:fixed;
+    top:130rpx;
+    z-index:1000;
+    background:#fff;
+  align-items: center
+ }
+ .search_inner_box{
+   width: 500rpx;
+   height: 66rpx;
+   background: #f5f5f5;
+   border-radius: 33rpx;
+   display: flex;
+   
+ }
+ .search_txt{
+   font-size: 24rpx;
+   color: #333;
+   margin:18rpx 10rpx 0rpx 30rpx;
+
+ }
+ .search_img{
+   width: 24rpx;
+   height: 24rpx;
+   position:relative;
+   top:21rpx;
+ }
+.icon_add{
+  width: 36rpx;
+  height: 36rpx
+}
+.service_box{
+  padding:119rpx 24rpx 24rpx;
+
+}
+.service_innerbox{
+    border-bottom: 1rpx solid #eee;
+    padding:24rpx 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.service_left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.service_img{
+    border:7rpx solid #eee;
+    width:104rpx;
+    height: 104rpx;
+    border-radius:52rpx;
+    margin-right:24rpx;
+}
+.service_name_box{
+
+}
+.service_name{
+    font-size:32rpx;
+    color: #333;
+    margin-bottom:14rpx;
+}
+.service_tel{
+    font-size:24rpx;
+    color: #999;
+}
+.service_right{
+  display: flex;
+  
+  align-items: center
+}
+.icon_repair{
+    margin-right:10rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
+.icon_repair_txt{
+    font-size:24rpx;
+    color: #ff0000;
+}

@@ -1,0 +1,174 @@
+/* pages/recevie_order/recevie_order.wxss */
+page{
+  background: #eee
+}
+.empty_custom{
+  border-bottom: none
+}
+.recevie_top{
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  position:fixed;
+  width:100%;
+  background:#fff;
+  z-index:3;
+  padding-bottom: 20rpx
+}
+
+.recevie_box{
+  padding: 30rpx 20rpx 200rpx;
+}
+.recevie_content{
+  border-radius:10rpx;
+  background: #fff;
+  padding: 40rpx;
+  margin-bottom: 30rpx
+}
+.recevie_content.index{
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE0AAABNCAMAAADU1xmCAAAAulBMVEUAAACC8Z+A8Z598JyC8Z+A8Z5/8Z1+8JyD8aB88Jt98JwOwGEg01s+s1RI7n8l5GdY/5Zw65M603lB3nIr2WQY0GN57plm5Y5f5IVX44Amym4m1mBEwGA8vFg+tlZ27JlU/ZJQ+45q6I5J94hR3IVC84I773tG6XtC6nlY2Hkz7HQ85nQ34m8t6G472WtMymso5mox32o412gi32YYxGYd12UUyWMQxGI5xF1M4HlQ0HAnym86zGI7ymFEEiLWAAAABHRSTlMAf39/hCNAYwAAAjFJREFUWMOszAEKg0AMBMC29qrJ/x9cCULEjeBldx4wL6VFmpk0M2lm0sykmUkzk2amydw9NzoLmm1ZVz8+SbbzoMiyU2T5CbLkiixR2ecHG5PtYCOyy0dl0FEZfEyGXTcbYxRdNwvQ9bNw6ZgMOybDjsiwm9/e31B/rSxUXTeru0aWoGMy7OYyABuRQTebbeGum8q2k7LrZnX3NMsLv9yIrOiYDLt/5XS2mzAMBFBUpZAYTJoQEtayby0Uyg7d/v+3ao8tTcGqZnxfLL8cTZQxHyt95bFuuYQj75SQQ407WSolMKMRHFKmwuHYf3MqpTwpZZ4kc3Wc1HXqfCsXa0rVOY63wyQZbuP4rO/N++FoDLTBUeoO8SxRzeIDXI+Du+F4WNiRUL5OoHUuoU54M1yB9zZTabpMjDa5SFOKGgsD7TWy1Z+gl6qtjRqFFYpWQ+7HaG8W+xCoUVgJNfFptJ7RMoPVBWokBprliu+GW4BmsSJiDxSmQk0EhttrbAXYJhAqNoaaLnzW2lVrO43tQ6FjY6Ah19BcX2tdhWVlXwyHQ65u9iNrCIiDBQFqf7haL4q+YT+6NQ/Mai7X1zuSeWL/cuN+tFD7MfbAUHO5ZrRZVVts7DGwoXbDta47DywMHO7Wa7eNxcJCkvPBXA04DCQuRnN8jOB8MdSQg3yxSkhzfKxCcnysbDWXw/iY1tzhLIcxMeBCioMKJAaay9l8MRyO4GgMNZqjMYqD+BhqLofR2C/9kUt1z1+7LQAAAABJRU5ErkJggg==) no-repeat right bottom,#fff;
+  background-size: 12%
+}
+.recevie_content_top{
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+  padding-bottom: 40rpx
+}
+.recevie_content_authentication{
+    position: absolute;
+    background: #ccc;
+    color: #fff;
+    height: 38rpx;
+    line-height: 38rpx;
+    padding: 0 13rpx;
+    border-radius:19rpx; 
+    font-size:18rpx;
+    left: -30rpx;
+}
+.recevie_content_authentication.index{
+  background: #0077e6;
+}
+.recevie_content_top_inner{
+  display: flex;
+  justify-content: space-between
+}
+.recevie_content_name_box{
+  display: flex;
+  justify-content: flex-start
+}
+.farmer_img{
+  width: 120rpx;
+    height: 120rpx;
+    border: 10rpx solid #eee;
+    border-radius:60rpx;
+    margin-right: 24rpx 
+}
+.farmer_name_box{
+  
+}
+.farmer_name{
+  font-size: 34rpx;
+    font-weight: bold;
+    margin-bottom: 14rpx;
+}
+.farmer_grade_box{
+display: flex;
+  align-items: center
+}
+.farmer_grade_innerbox{
+    background: #ff6f26;
+    color: #fff;
+    padding:9rpx 14rpx;
+    border-radius:9rpx;
+    margin-right: 14rpx;
+    display: flex;
+    width:88rpx;
+}
+.farmer_grade_star{
+    width: 23rpx;
+    height: 23rpx;
+    margin-right:5rpx;
+    margin-top:5rpx;
+}
+.farmer_grade_value{
+    color: #fff;
+    font-size: 24rpx;
+}
+.farmer_position{
+  font-size: 24rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow-x:hidden;
+}
+.recevie_content_distance{
+  color: #999;
+  position: absolute;
+  right:0rpx;
+  top: 0rpx
+}
+
+.recevie_content_center{
+  padding: 20rpx 0 30rpx;
+  border-bottom: 1rpx solid #eee;
+  text-align: center
+}
+.recevie_content_header{
+  font-size: 40rpx;
+  color: #666;
+  text-align: center;
+}
+.recevie_content_price{
+  color: #6cd986;
+  margin: 20rpx 0 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recevie_content_price_unit{
+  font-size: 28rpx;
+}
+.recevie_content_price_value{
+  font-size: 46rpx;
+}
+.recevie_content_date{
+  font-size: 24rpx;
+  color: #999;
+}
+.recevie_btn{
+  font-size:32rpx;
+  width:60%;
+  margin-left:20%;
+  color:#fff;
+  text-align:center;
+  background:linear-gradient(to right, #6cd986, #22d2ac);
+  height:60rpx;
+  line-height:60rpx;
+  border-radius:30rpx;
+  margin-top:32rpx;
+}
+.recevie_btn.index{
+  background: #eee
+}
+.search_box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:50rpx;
+  border-radius:25rpx;
+  width:40%;
+  background:#e7e7e7;
+  margin-left:30%;
+  margin-top:28rpx;
+
+}
+.search_box_logo{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right:10rpx;
+}
+.search_box_txt{
+  font-size: 22rpx!important;
+  color: #333!important
+}

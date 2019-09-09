@@ -1,0 +1,71 @@
+/* pages/people_center/people_center.wxss */
+.icon_back{
+  width:58rpx;
+  height:72rpx;
+  position:absolute;
+  left:20rpx;
+  top:80rpx;
+  padding:20rpx;
+}
+page{
+  background: #f2f2f2
+}
+.people_center_top{
+  height: 356rpx;
+  padding: 80rpx 20rpx 0 38rpx;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #6cd986, #22d2ac);
+}
+.people_center_name_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
+}
+.people_center_img_box{
+  display: flex;
+  align-items: center
+}
+.people_center_img{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 16rpx
+}
+.people_center_name{
+  font-size: 42rpx;
+  color: #fff;
+}
+.people_center_right{
+  width: 18rpx;
+  height: 32rpx;
+}
+.people_center_list{
+  margin-top: 16rpx;
+  background: #fff;
+  height: 112rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 46rpx 0 38rpx
+}
+.people_center_list_left{
+  align-items: center;
+  display: flex
+}
+.people_center_list_img{
+  margin-right: 38rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.people_center_list_txt{
+  font-size: 32rpx;
+  color: #333;
+}
+.people_center_list_right{
+  width: 18rpx;
+  height: 32rpx;
+}

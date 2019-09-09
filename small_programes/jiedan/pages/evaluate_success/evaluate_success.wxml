@@ -1,0 +1,20 @@
+<!--pages/evaluate_success/evaluate_success.wxml-->
+<!--pages/evaluate/evaluate.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>评价成功</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>  
+
+<view class='evaluate_top'>
+  <image class='evaluate_logo' src='/images/icon_done_s.png'></image>
+  <view class='evaluate_txt'>评价成功</view>
+</view>
+<view class='order_box' bindtap='to_order_details'>
+  <view class='order_left'>
+    <view class='order_header'>{{order.jobType}}/{{order.cropsType}}</view>
+    <view class='order_position'>{{order.province}}{{order.city}}{{order.district}}{{order.street}}{{order.address}}</view>
+    <view class='order_data'>作业日期：{{order.overTime}}</view>
+  </view>
+  <image class='order_right' src='/images/icon_forward_grey_s.png'></image>
+</view>

@@ -1,0 +1,45 @@
+<!--pages/add_bank/add_bank.wxml-->
+<view class="custom flex_center" style="padding-top:{{statusBarHeight}}px">
+  <image bindtap='back_page' class='back_page' src='/images/icon_back.png'></image>
+  <text>新增银行卡</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
+
+<view class='bank_small_header'>请绑定账户本人的银行卡</view>
+<view class='bank_content_box'>
+  <view class='bank_content_list'>
+    <text class='bank_content_name'>银行卡号</text>
+    <input class='bank_content_value' value='{{bank.cardNo}}' bindinput='bind_cardNo' placeholder='请输入银行卡卡号'></input>
+  </view>
+  <view class='bank_content_list type'>
+    <text class='bank_content_name'>卡类型</text>
+      <picker bindchange="bindPickerChange" bindchange="bindPickerChange" class='bank_content_list_right' range="{{bank_array}}">
+        <view class='bank_content_type_box'>
+          <input class='bank_content_type' value='{{bank_array[bank_index]}}' placeholder='请选择卡类型' disabled></input>
+          <image class='bank_content_type_icon' src='/images/icon_forward_grey.png'></image>
+        </view>
+      </picker>
+  </view>
+  <view class='bank_content_list'>
+    <text class='bank_content_name'>开户行</text>
+    <input class='bank_content_value' value='{{bank.subBank}}' bindinput='bind_subBank' placeholder='请输入开户行'></input>
+  </view>
+</view>
+<view class='bank_small_header'>验证信息</view>
+<view class='bank_content_box'>
+  <view class='bank_content_list'>
+    <text class='bank_content_name'>持卡人</text>
+    <input class='bank_content_value' value='{{bank.owner}}' bindinput='bind_owner' placeholder='请输入持卡人'></input>
+  </view>
+  <view class='bank_content_list'>
+    <text class='bank_content_name'>身份证</text>
+    <input class='bank_content_value identity' value='{{bank.idCardNo}}' bindinput='bind_idCardNo' placeholder='请输入持卡人身份证'></input>
+  </view>
+  <view class='bank_content_list'>
+    <text class='bank_content_name'>手机号</text>
+    <input class='bank_content_value' value='{{bank.phone}}' bindinput='bind_phone' placeholder='请输入银行预留手机号'></input>
+  </view>
+</view>
+
+<button class='add_bank_btn' bindtap='add_bank_btn'>完成</button>
+
